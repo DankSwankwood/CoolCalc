@@ -8,6 +8,7 @@ namespace CoolCalc
 			base (Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
+			//this is cool
 		}
 	}
 }
