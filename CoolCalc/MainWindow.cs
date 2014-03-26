@@ -7,6 +7,7 @@ namespace CoolCalc
 		public MainWindow () : 
 			base (Gtk.WindowType.Toplevel)
 		{
+			//Added comment for test
 			this.Build ();
 			//this is cool
 		}
