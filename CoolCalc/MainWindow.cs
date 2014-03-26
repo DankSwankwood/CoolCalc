@@ -11,6 +11,11 @@ namespace CoolCalc
 			this.Build ();
 			//this is cool
 		}
+
+		protected void OnButton7Clicked (object sender, EventArgs e)
+		{
+			throw new NotImplementedException ();
+		}
 	}
 }
 

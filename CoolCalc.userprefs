@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CoolCalc/EmptyClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CoolCalc/MainWindow.cs">
     <Files>
-      <File FileName="CoolCalc/EmptyClass.cs" Line="14" Column="1" />
+      <File FileName="CoolCalc/EmptyClass.cs" Line="13" Column="1" />
+      <File FileName="CoolCalc/MainWindow.cs" Line="12" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
