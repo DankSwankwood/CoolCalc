@@ -54,11 +54,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">=</property>
                 <property name="UseUnderline">True</property>
-<<<<<<< HEAD
-                <signal name="Clicked" handler="OnButton1Clicked" />
-=======
                 <signal name="Clicked" handler="OnBtnEqualsClicked" />
->>>>>>> Update
               </widget>
               <packing>
                 <property name="TopAttach">4</property>

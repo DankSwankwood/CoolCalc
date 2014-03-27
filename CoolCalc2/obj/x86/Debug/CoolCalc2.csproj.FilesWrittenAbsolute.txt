@@ -1,0 +1,6 @@
+/Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.gtk-gui.gui.stetic
+/Users/niclas/CoolCalc/CoolCalc2/bin/Debug/CoolCalc2.exe.mdb
+/Users/niclas/CoolCalc/CoolCalc2/bin/Debug/CoolCalc2.exe
+/Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe
+/Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe.mdb
