@@ -13,4 +13,9 @@ public partial class MainWindow: Gtk.Window
 		Application.Quit ();
 		a.RetVal = true;
 	}
+
+	protected void OnTextview1InsertAtCursor (object o, InsertAtCursorArgs args)
+	{
+		throw new NotImplementedException ();
+	}
 }
