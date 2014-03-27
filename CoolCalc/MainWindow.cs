@@ -16,6 +16,16 @@ namespace CoolCalc
 		{
 			throw new NotImplementedException ();
 		}
+
+		protected void OnBtnNum1Clicked (object sender, EventArgs e)
+		{
+			throw new NotImplementedException ();
+		}
+
+		protected void OnBtnNum2Clicked (object sender, EventArgs e)
+		{
+			throw new NotImplementedException ();
+		}
 	}
 }
 
