@@ -40,12 +40,12 @@ public partial class MainWindow: Gtk.Window
 	{
 		textview1.Buffer.Text = "0";
 
-		//Trying to cahnge the color of the button
+		//Trying to change the color of the button (WIP)
 		Gdk.Color col = new Gdk.Color();
 		Gdk.Color.Parse ("blue", ref col);
 		clearBtn.ModifyBase (StateType.Normal, col);
 	}
-
+	//All the numpad buttons (from 0-9). All have IfZero() that checks for zeros before non zero integers
 	protected void OnBtnNumZeroClicked (object sender, EventArgs e)
 	{
 		IfZero ();
@@ -128,7 +128,7 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text += "-";
 		}
 	}
-
+	//addition function - making sure that the operation is "+"
 	private void addition(object sender, EventArgs e){
 
 		operand1 = Convert.ToDouble (textview1.Buffer.Text);
@@ -136,6 +136,7 @@ public partial class MainWindow: Gtk.Window
 		textview1.Buffer.Clear();
 	}
 
+	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
 	{
 		operand2 = Convert.ToDouble (textview1.Buffer.Text);
