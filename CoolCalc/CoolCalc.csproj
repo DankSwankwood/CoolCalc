@@ -39,6 +39,8 @@
     <Compile Include="Window_test2.cs" />
     <Compile Include="gtk-gui\CoolCalc.Window_test2.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="NewWindow.cs" />
+    <Compile Include="gtk-gui\CoolCalc.NewWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
