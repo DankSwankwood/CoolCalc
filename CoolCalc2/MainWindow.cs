@@ -18,4 +18,9 @@ public partial class MainWindow: Gtk.Window
 	{
 		throw new NotImplementedException ();
 	}
+
+	protected void OnButton1Clicked (object sender, EventArgs e)
+	{
+		throw new NotImplementedException ();
+	}
 }
