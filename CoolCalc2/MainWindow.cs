@@ -148,14 +148,6 @@ public partial class MainWindow: Gtk.Window
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
 	{
-//		//Trying to change the color of the button (WIP)
-//		Gdk.Color col = new Gdk.Color(73,141,252);
-//		Gdk.Color colFont = new Gdk.Color(255,255,255);
-//		//Gdk.Color.Parse ("blue", ref col);
-//		btnEquals.ModifyBg (Gtk.StateType.Normal, col);
-//		btnEquals.ModifyFg (Gtk.StateType.Normal, colFont);
-//		//btnEquals.ModifyText (Gtk.StateType.Normal, colFont);
-
 		operand2 = Convert.ToDouble (textview1.Buffer.Text);
 
 		switch (opr) 
