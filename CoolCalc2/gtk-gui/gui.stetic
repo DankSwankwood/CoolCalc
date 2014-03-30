@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/CoolCalc2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="512 290">
+  <widget class="Gtk.Window" id="MainWindow" design-size="512 332">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -26,9 +26,15 @@
                 <child>
                   <widget class="Gtk.TextView" id="textview1">
                     <property name="MemberName" />
+                    <property name="CanDefault">True</property>
+                    <property name="HasDefault">True</property>
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
+                    <property name="AcceptsTab">False</property>
                     <property name="Text" translatable="yes" />
+                    <property name="Justification">Right</property>
+                    <property name="PixelsAboveLines">24</property>
+                    <property name="Indent">5</property>
                     <signal name="InsertAtCursor" handler="OnTextview1InsertAtCursor" />
                   </widget>
                 </child>
@@ -41,6 +47,56 @@
           </packing>
         </child>
         <child>
+          <widget class="Gtk.HBox" id="hbox1">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Button" id="btnOff2">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">OFF</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+                <property name="BorderWidth">9</property>
+                <signal name="Clicked" handler="OnBtnOff2Clicked" />
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">0</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="btnOn2">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">ON</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+                <property name="BorderWidth">9</property>
+                <signal name="Clicked" handler="OnBtnOn2Clicked" />
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">1</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
             <property name="NRows">5</property>
@@ -48,12 +104,62 @@
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
+              <widget class="Gtk.Button" id="btnDel">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">DEL</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnDelClicked" />
+              </widget>
+              <packing>
+                <property name="LeftAttach">2</property>
+                <property name="RightAttach">3</property>
+                <property name="AutoSize">False</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="btnDot">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">.</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnDotClicked" />
+              </widget>
+              <packing>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.Button" id="btnEquals">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">=</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnEqualsClicked" />
               </widget>
               <packing>
@@ -61,10 +167,30 @@
                 <property name="BottomAttach">5</property>
                 <property name="LeftAttach">5</property>
                 <property name="RightAttach">6</property>
-                <property name="AutoSize">True</property>
+                <property name="AutoSize">False</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
                 <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="btnLeft">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">&lt;</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+              </widget>
+              <packing>
+                <property name="AutoSize">False</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
@@ -79,6 +205,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">-</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnMinusClicked" />
               </widget>
               <packing>
@@ -104,6 +231,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">1</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum1Clicked" />
               </widget>
               <packing>
@@ -129,6 +257,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">2</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum2Clicked" />
               </widget>
               <packing>
@@ -154,6 +283,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">3</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum3Clicked" />
               </widget>
               <packing>
@@ -179,6 +309,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">4</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum4Clicked" />
               </widget>
               <packing>
@@ -204,6 +335,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">5</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum5Clicked" />
               </widget>
               <packing>
@@ -229,6 +361,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">6</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum6Clicked" />
               </widget>
               <packing>
@@ -254,6 +387,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">7</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum7Clicked" />
               </widget>
               <packing>
@@ -279,6 +413,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">8</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum8Clicked" />
               </widget>
               <packing>
@@ -304,6 +439,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">9</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNum9Clicked" />
               </widget>
               <packing>
@@ -329,6 +465,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">0</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnNumZeroClicked" />
               </widget>
               <packing>
@@ -348,12 +485,39 @@
               </packing>
             </child>
             <child>
+              <widget class="Gtk.Button" id="btnOff">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">OFF</property>
+                <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnOffClicked" />
+              </widget>
+              <packing>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.Button" id="btnPlus">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">+</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnBtnPlusClicked" />
               </widget>
               <packing>
@@ -379,6 +543,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -403,6 +568,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">*</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -427,6 +593,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -451,6 +618,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -475,6 +643,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -497,6 +666,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -519,6 +689,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -543,6 +714,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">/</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -561,36 +733,13 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button3">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">.</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
-                <property name="LeftAttach">4</property>
-                <property name="RightAttach">5</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.Button" id="button30">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">%</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="LeftAttach">5</property>
@@ -612,6 +761,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">)</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="LeftAttach">4</property>
@@ -633,31 +783,11 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">(</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
-                <property name="AutoSize">False</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">True</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="button33">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">DEL</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
-                <property name="LeftAttach">2</property>
-                <property name="RightAttach">3</property>
                 <property name="AutoSize">False</property>
                 <property name="YOptions">Fill</property>
                 <property name="XExpand">True</property>
@@ -675,29 +805,11 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">&gt;</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
-                <property name="AutoSize">False</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">True</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="button35">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">&lt;</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
                 <property name="AutoSize">False</property>
                 <property name="YOptions">Fill</property>
                 <property name="XExpand">True</property>
@@ -715,6 +827,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -739,6 +852,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">x!</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">4</property>
@@ -757,58 +871,13 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button6">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">OFF</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
-                <property name="LeftAttach">1</property>
-                <property name="RightAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="button7">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">ON</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.Button" id="button8">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -831,6 +900,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">GtkButton</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -855,6 +925,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">CLEAR</property>
                 <property name="UseUnderline">True</property>
+                <property name="FocusOnClick">False</property>
                 <signal name="Clicked" handler="OnClearBtnClicked" />
               </widget>
               <packing>
@@ -870,9 +941,38 @@
                 <property name="YShrink">False</property>
               </packing>
             </child>
+            <child>
+              <widget class="Gtk.EventBox" id="eventbox2">
+                <property name="MemberName" />
+                <child>
+                  <widget class="Gtk.Button" id="btnOn">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">ON</property>
+                    <property name="UseUnderline">True</property>
+                    <property name="FocusOnClick">False</property>
+                    <signal name="Clicked" handler="OnBtnOnClicked" />
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
