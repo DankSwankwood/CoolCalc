@@ -96,6 +96,7 @@ public partial class MainWindow: Gtk.Window
 		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
+		//BLABLA
 	}
 
 	//IfZero prevents multiple zero in the text field to be present - IfZero(); needs to be called in 
