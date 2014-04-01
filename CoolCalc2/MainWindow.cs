@@ -56,12 +56,6 @@ public partial class MainWindow: Gtk.Window
 		btnDel.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnDel.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnDel.ModifyBg (Gtk.StateType.Active, colFunctions);
-//		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
-//		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
-//		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
-//		btnLeft.ModifyBg (Gtk.StateType.Normal, colFunctions);
-//		btnLeft.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
-//		btnLeft.ModifyBg (Gtk.StateType.Active, colFunctions);
 		btnSin.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnSin.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnSin.ModifyBg (Gtk.StateType.Active, colFunctions);
@@ -92,10 +86,12 @@ public partial class MainWindow: Gtk.Window
 		btnFact.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnFact.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnFact.ModifyBg (Gtk.StateType.Active, colFunctions);
-
-
-
-
+		btnLeft.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLeft.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
 	}
 
 	//IfZero prevents multiple zero in the text field to be present - IfZero(); needs to be called in 
