@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/CoolCalc2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="512 368">
+  <widget class="Gtk.Window" id="MainWindow" design-size="512 306">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -30,10 +30,10 @@
                     <property name="HasDefault">True</property>
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
+                    <property name="Editable">False</property>
                     <property name="AcceptsTab">False</property>
                     <property name="Text" translatable="yes" />
                     <property name="Justification">Right</property>
-                    <property name="PixelsAboveLines">24</property>
                     <property name="Indent">5</property>
                     <signal name="InsertAtCursor" handler="OnTextview1InsertAtCursor" />
                   </widget>
@@ -929,6 +929,7 @@
                     <property name="Label" translatable="yes">&lt;</property>
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
+                    <signal name="Clicked" handler="OnBtnLeftClicked" />
                   </widget>
                 </child>
               </widget>

@@ -70,9 +70,9 @@ public partial class MainWindow
 		this.textview1.CanDefault = true;
 		this.textview1.CanFocus = true;
 		this.textview1.Name = "textview1";
+		this.textview1.Editable = false;
 		this.textview1.AcceptsTab = false;
 		this.textview1.Justification = ((global::Gtk.Justification)(1));
-		this.textview1.PixelsAboveLines = 24;
 		this.textview1.Indent = 5;
 		this.GtkScrolledWindow.Add (this.textview1);
 		this.eventbox1.Add (this.GtkScrolledWindow);
@@ -611,13 +611,14 @@ public partial class MainWindow
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 512;
-		this.DefaultHeight = 368;
+		this.DefaultHeight = 306;
 		this.textview1.HasDefault = true;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.textview1.InsertAtCursor += new global::Gtk.InsertAtCursorHandler (this.OnTextview1InsertAtCursor);
 		this.btnOn2.Clicked += new global::System.EventHandler (this.OnBtnOn2Clicked);
 		this.btnOff2.Clicked += new global::System.EventHandler (this.OnBtnOff2Clicked);
+		this.btnLeft.Clicked += new global::System.EventHandler (this.OnBtnLeftClicked);
 		this.clearBtn.Clicked += new global::System.EventHandler (this.OnClearBtnClicked);
 		this.btnPlus.Clicked += new global::System.EventHandler (this.OnBtnPlusClicked);
 		this.btnPi.Clicked += new global::System.EventHandler (this.OnBtnPiClicked);

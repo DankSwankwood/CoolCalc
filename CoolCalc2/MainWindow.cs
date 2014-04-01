@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Gtk;
+using Pango;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -14,8 +15,11 @@ public partial class MainWindow: Gtk.Window
 		//Initializes the text view with a zero
 		textview1.Buffer.Text = "0";
 		btnOn2.Sensitive = false; //The on button is disable at program start
-
 		//////////////////////////////DESIGN
+		/// 
+		/// 
+		/// 
+		textview1.ModifyFont(FontDescription.FromString("Helvetica 48"));
 		//Color of buttons:
 		//Equals button to blue color (Inspiration from Googles Scientific Calculator)
 		Gdk.Color colEquals = new Gdk.Color(73,141,252);
@@ -101,6 +105,20 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = "";
 		}
 	}
+	//Checks if thet ext buffer ends with a symbol and making it impossible to have multiples of the
+	//same symbol. It haves an input so we can define what input it should write depending on in which
+	//symbol code we add this function. - Niclas Bach Nielsen
+	protected void CheckSymbol(string input){
+		if (textview1.Buffer.Text.EndsWith ("+") ||
+		    textview1.Buffer.Text.EndsWith ("-") ||
+		    textview1.Buffer.Text.EndsWith ("/") ||
+		    textview1.Buffer.Text.EndsWith ("%") ||
+		    textview1.Buffer.Text.EndsWith (".")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text + input;
+		} else {
+			textview1.Buffer.Text = textview1.Buffer.Text + input;
+		}
+	}	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
 		//Comment of Application.Quit() and a.RetVal = true (instead of false) 
@@ -143,6 +161,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		IfZero ();
 		textview1.Buffer.Text += "3";
+
 	}
 
 	protected void OnBtnNum4Clicked (object sender, EventArgs e)
@@ -187,20 +206,42 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnPlusClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith("+")) {
-			textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("+"));
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("+"));
+			//DO NOTHING
 		} else {
-			textview1.Buffer.Text += "+";
+			CheckSymbol ("+");
 		}
 
 	}
 	//Works the same as the plus (+) button but with minus (-)
 	protected void OnBtnMinusClicked (object sender, EventArgs e)
 	{
+		//CheckSymbol ();
 		if (textview1.Buffer.Text.EndsWith("-")) {
-			textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
+			//DO NOTHING
 		} else {
-			textview1.Buffer.Text += "-";
+			CheckSymbol ("-");
 		}
+	}
+
+	protected void OnBtnDotClicked (object sender, EventArgs e)
+	{
+		int testDot = 0;
+		if (textview1.Buffer.Text.EndsWith (".")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("."));
+			//DO NOTHING
+		} else {
+			testDot = textview1.Buffer.Text.LastIndexOf ("+");
+			Console.WriteLine (testDot);
+			if (testDot == -1) {
+				CheckSymbol (".");
+			}
+		}/*else if (textview1.Buffer.Text.Contains ("+") && textview1.Buffer.Text.Contains("")) {
+			//DO NOTHING
+			textview1.Buffer.Text += ".";
+		}*/
+
 	}
 	//addition function - making sure that the operation is "+"
 	private void addition(object sender, EventArgs e){
@@ -224,16 +265,6 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-	protected void OnBtnDotClicked (object sender, EventArgs e)
-	{
-		if (textview1.Buffer.Text.EndsWith(".")) {
-			textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("."));
-		} else {
-			textview1.Buffer.Text += ".";
-		}
-
-	}
-
 	//DEL button is implemented here. When clicked it stores the display text in a string and assigns
 	//its length to an integer. The display text is then set to a substring that has one less
 	//string length than before.
@@ -255,7 +286,16 @@ public partial class MainWindow: Gtk.Window
 	{
 		//textview1.Buffer.Insert(textview1.Buffer.StartIter, "HEJ");
 		//textview1.Buffer.PlaceCursor (textView1.Buffer.EndIter);
-		textview1.Buffer.PlaceCursor (textview1.Buffer.EndIter);
+		//textview1.Buffer.PlaceCursor (textview1.Buffer.EndIter);
+		//textview1.Buffer.CursorPosition(left);
+		//Console.SetCursorPosition()
+		//textview1.Buffer.Text.Select (0, 0);
+		//textview1.Buffer.Text.Sele
+		//textview1.Buffer.GetIterAtLineOffset (0, -1);
+		//Gtk.TextIter leftIter;
+		//leftIter = textview1.Buffer.GetIterAtLineOffset (0, -1);
+		//textview1.Buffer.Insert (leftIter, "");
+		//textview1.Buffer.Text.Select (0, -1);
 
 	}
 		
@@ -278,21 +318,15 @@ public partial class MainWindow: Gtk.Window
 		table1.Sensitive = false;
 		textview1.Sensitive = false;
 		textview1.Buffer.Text = "0";
-
 	}
 
 	protected void OnBtnPiClicked (object sender, EventArgs e)
 	{
 		IfZero ();
-		textview1.Buffer.Text = "3.14159265359";
-
-		if (textview1.Buffer.Text.EndsWith("3.14159265359")){
-			textview1.Buffer.Text = textview1.Buffer.Text + "3.14159265359";
+		if (textview1.Buffer.Text.EndsWith ("3.14159265359")) {
+			//do nothing
+		} else {
+			textview1.Buffer.Text += "3.14159265359";
 		}
-//		if (textview1.Buffer.Text.EndsWith("3.14159265359")) {
-//			textview1.Buffer.Text = "3.14159265359";
-//		} else if(textview1.Buffer.Text.){
-//			textview1.Buffer.Text = textview1.Buffer.Text + "3.14159265359";
-//		}
 	}
 }
