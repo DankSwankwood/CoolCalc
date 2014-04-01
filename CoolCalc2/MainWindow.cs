@@ -15,15 +15,84 @@ public partial class MainWindow: Gtk.Window
 		textview1.Buffer.Text = "0";
 		btnOn2.Sensitive = false; //The on button is disable at program start
 
+		//////////////////////////////DESIGN
+		//Color of buttons:
 		//Equals button to blue color (Inspiration from Googles Scientific Calculator)
-		Gdk.Color col = new Gdk.Color(73,141,252);
+		Gdk.Color colEquals = new Gdk.Color(73,141,252);
+		Gdk.Color colFunctions = new Gdk.Color (212, 212, 212);
 		Gdk.Color colFont = new Gdk.Color(255,255,255);
-		//Gdk.Color.Parse ("blue", ref col);
-		btnEquals.ModifyBg (Gtk.StateType.Normal, col);
+		//Equals button:
+		btnEquals.ModifyBg (Gtk.StateType.Normal, colEquals);
 		btnEquals.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(80, 150,255));
-		btnEquals.ModifyBg (Gtk.StateType.Active, col);
+		btnEquals.ModifyBg (Gtk.StateType.Active, colEquals);
 		//btnEquals.ModifyBase (Gtk.StateType.Normal, colFont);
 		btnEquals.ModifyText (Gtk.StateType.Prelight, colFont);
+
+		//Function buttons:
+		btnPlus.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnPlus.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnPlus.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnMinus.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnMinus.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnMinus.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnMul.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnMul.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnMul.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnDiv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnDiv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnDiv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		clearBtn.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		clearBtn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		clearBtn.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnPerc.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnPerc.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnPerc.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnRightPar.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnRightPar.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnRightPar.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLeftPar.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLeftPar.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLeftPar.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnDel.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnDel.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnDel.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLeft.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnSin.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnSin.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnSin.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnCos.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnCos.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnCos.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnTan.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnTan.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnTan.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnSqr.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnSqr.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnSqr.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnPi.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnPi.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnPi.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLog.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLog.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLog.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnX3.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnX3.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnX3.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnX2.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnX2.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnX2.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnXY.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnXY.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnXY.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnFact.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnFact.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnFact.ModifyBg (Gtk.StateType.Active, colFunctions);
+
 
 
 
@@ -193,51 +262,7 @@ public partial class MainWindow: Gtk.Window
 		textview1.Buffer.PlaceCursor (textview1.Buffer.EndIter);
 
 	}
-
-	protected void OnBtnOnClicked (object sender, EventArgs e)
-	{
-			textview1.Sensitive = true;
-			textview1.Buffer.Text = "0";
-			btnNumZero.Sensitive = true;
-			btnNum1.Sensitive = true;
-			btnNum2.Sensitive = true;
-			btnNum3.Sensitive = true;
-			btnNum4.Sensitive = true;
-			btnNum5.Sensitive = true;
-			btnNum6.Sensitive = true;
-			btnNum7.Sensitive = true;
-			btnNum8.Sensitive = true;
-			btnNum9.Sensitive = true;
-			btnEquals.Sensitive = true;
-			btnPlus.Sensitive = true;
-			btnMinus.Sensitive = true;
-			clearBtn.Sensitive = true;
-
-			btnOff.Sensitive = true;
-			btnOn.Sensitive = false;
-	}
-
-	protected void OnBtnOffClicked (object sender, EventArgs e)
-	{
-			textview1.Sensitive = false;
-			textview1.Buffer.Text = "0";
-			btnNumZero.Sensitive = false;
-			btnNum1.Sensitive = false;
-			btnNum2.Sensitive = false;
-			btnNum3.Sensitive = false;
-			btnNum4.Sensitive = false;
-			btnNum5.Sensitive = false;
-			btnNum6.Sensitive = false;
-			btnNum7.Sensitive = false;
-			btnNum8.Sensitive = false;
-			btnNum9.Sensitive = false;
-			btnEquals.Sensitive = false;
-			btnPlus.Sensitive = false;
-			btnMinus.Sensitive = false;
-			clearBtn.Sensitive = false;
-			btnOff.Sensitive = false;
-			btnOn.Sensitive = true;
-	}
+		
 	//ON button implementation. Enables all buttons and the textview but disables the ON button
 	//since the program is already ON
 	protected void OnBtnOn2Clicked (object sender, EventArgs e)
@@ -258,5 +283,20 @@ public partial class MainWindow: Gtk.Window
 		textview1.Sensitive = false;
 		textview1.Buffer.Text = "0";
 
+	}
+
+	protected void OnBtnPiClicked (object sender, EventArgs e)
+	{
+		IfZero ();
+		textview1.Buffer.Text = "3.14159265359";
+
+		if (textview1.Buffer.Text.EndsWith("3.14159265359")){
+			textview1.Buffer.Text = textview1.Buffer.Text + "3.14159265359";
+		}
+//		if (textview1.Buffer.Text.EndsWith("3.14159265359")) {
+//			textview1.Buffer.Text = "3.14159265359";
+//		} else if(textview1.Buffer.Text.){
+//			textview1.Buffer.Text = textview1.Buffer.Text + "3.14159265359";
+//		}
 	}
 }
