@@ -616,12 +616,9 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.textview1.InsertAtCursor += new global::Gtk.InsertAtCursorHandler (this.OnTextview1InsertAtCursor);
-		this.btnOn2.Clicked += new global::System.EventHandler (this.OnBtnOn2Clicked);
-		this.btnOff2.Clicked += new global::System.EventHandler (this.OnBtnOff2Clicked);
-		this.btnLeft.Clicked += new global::System.EventHandler (this.OnBtnLeftClicked);
 		this.clearBtn.Clicked += new global::System.EventHandler (this.OnClearBtnClicked);
 		this.btnPlus.Clicked += new global::System.EventHandler (this.OnBtnPlusClicked);
-		this.btnPi.Clicked += new global::System.EventHandler (this.OnBtnPiClicked);
+		this.btnPerc.Clicked += new global::System.EventHandler (this.OnBtnPercClicked);
 		this.btnNumZero.Clicked += new global::System.EventHandler (this.OnBtnNumZeroClicked);
 		this.btnNum9.Clicked += new global::System.EventHandler (this.OnBtnNum9Clicked);
 		this.btnNum8.Clicked += new global::System.EventHandler (this.OnBtnNum8Clicked);
@@ -632,9 +629,10 @@ public partial class MainWindow
 		this.btnNum3.Clicked += new global::System.EventHandler (this.OnBtnNum3Clicked);
 		this.btnNum2.Clicked += new global::System.EventHandler (this.OnBtnNum2Clicked);
 		this.btnNum1.Clicked += new global::System.EventHandler (this.OnBtnNum1Clicked);
+		this.btnMul.Clicked += new global::System.EventHandler (this.OnBtnMulClicked);
 		this.btnMinus.Clicked += new global::System.EventHandler (this.OnBtnMinusClicked);
 		this.btnEquals.Clicked += new global::System.EventHandler (this.OnBtnEqualsClicked);
 		this.btnDot.Clicked += new global::System.EventHandler (this.OnBtnDotClicked);
-		this.btnDel.Clicked += new global::System.EventHandler (this.OnBtnDelClicked);
+		this.btnDiv.Clicked += new global::System.EventHandler (this.OnBtnDivClicked);
 	}
 }

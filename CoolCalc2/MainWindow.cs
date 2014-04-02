@@ -15,6 +15,7 @@ public partial class MainWindow: Gtk.Window
 		//Initializes the text view with a zero
 		textview1.Buffer.Text = "0";
 		btnOn2.Sensitive = false; //The on button is disable at program start
+
 		//////////////////////////////DESIGN
 		/// 
 		/// 
@@ -204,6 +205,7 @@ public partial class MainWindow: Gtk.Window
 	//Their can only be one "+" sign present at a time after each number, this does the if and else
 	//make sure of by checking if the text ends with a plus symbol (+), if it does it should remove it. 
 	//Else it should add a plus symbol (+).
+
 	protected void OnBtnPlusClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith("+")) {
@@ -214,10 +216,10 @@ public partial class MainWindow: Gtk.Window
 		}
 
 	}
+
 	//Works the same as the plus (+) button but with minus (-)
 	protected void OnBtnMinusClicked (object sender, EventArgs e)
 	{
-		//CheckSymbol ();
 		if (textview1.Buffer.Text.EndsWith("-")) {
 			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
 			//DO NOTHING
@@ -225,6 +227,38 @@ public partial class MainWindow: Gtk.Window
 			CheckSymbol ("-");
 		}
 	}
+
+	//works the same, but with divide (/)
+	protected void OnBtnDivClicked (object sender, EventArgs e)
+	{
+		if (textview1.Buffer.Text.EndsWith ("/")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
+			//DO NOTHING
+		} else {
+			CheckSymbol ("/");
+		}
+	}
+
+	//works the same, but with divide (*)
+	protected void OnBtnMulClicked (object sender, EventArgs e)
+	{
+		if (textview1.Buffer.Text.EndsWith ("*")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
+			//DO NOTHING
+		} else {
+			CheckSymbol ("*");
+		}
+	}
+
+
+	protected void OnBtnPercClicked (object sender, EventArgs e)
+	{
+		if (textview1.Buffer.Text.EndsWith ("%")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
+			//DO NOTHING
+		} else {
+			CheckSymbol ("%");
+		}	}
 
 	protected void OnBtnDotClicked (object sender, EventArgs e)
 	{
@@ -244,6 +278,13 @@ public partial class MainWindow: Gtk.Window
 		}*/
 
 	}
+
+
+
+
+
+
+
 	//addition function - making sure that the operation is "+"
 	private void addition(object sender, EventArgs e){
 
@@ -251,20 +292,72 @@ public partial class MainWindow: Gtk.Window
 		opr = "+";
 		textview1.Buffer.Clear();
 	}
+	//minus function - making sure that the operation is "-"
 
+	private void minus(object sender, EventArgs e){
+
+		operand1 = Convert.ToDouble (textview1.Buffer.Text);
+		opr = "-";
+		textview1.Buffer.Clear();
+	}
+	//divide function - making sure that the operation is "/"
+
+	private void divide(object sender, EventArgs e){
+
+		operand1 = Convert.ToDouble (textview1.Buffer.Text);
+		opr = "/";
+		textview1.Buffer.Clear();
+	}
+
+	private void multiply(object sender, EventArgs e){
+
+		operand1 = Convert.ToDouble (textview1.Buffer.Text);
+		opr = "*";
+		textview1.Buffer.Clear();
+	}
+
+	private void modulus(object sender, EventArgs e){
+
+		operand1 = Convert.ToDouble (textview1.Buffer.Text);
+		opr = "%";
+		textview1.Buffer.Clear();
+	}
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
 	{
 		operand2 = Convert.ToDouble (textview1.Buffer.Text);
 
-		switch (opr) 
-		{
+		switch (opr) {
 		case "+":
 			result = operand1 + operand2;
 			textview1.Buffer.Text = Convert.ToString (result);
 			break;
-		}
+		case "-":
+			result = operand1 - operand2;
+			textview1.Buffer.Text = Convert.ToString (result);
+			break;
+		case "/":
+			if (operand2 == 0) {
+				textview1.Buffer.Text = "0.0";
+				break;
+			} else {
+				result = operand1 / operand2;
+				textview1.Buffer.Text = Convert.ToString (result);
+				break;
+			}
+		case "*":
+			result = operand1 * operand2;
+			textview1.Buffer.Text = Convert.ToString (result);
+			break;
+		case "%":
+			result = operand1 % operand2;
+			textview1.Buffer.Text = Convert.ToString (result);
+			break;
+		
+
 	}
+	}
+
 
 	//DEL button is implemented here. When clicked it stores the display text in a string and assigns
 	//its length to an integer. The display text is then set to a substring that has one less
@@ -330,4 +423,9 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text += "3.14159265359";
 		}
 	}
+
+
+
+
+
 }
