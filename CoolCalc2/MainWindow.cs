@@ -428,4 +428,31 @@ public partial class MainWindow: Gtk.Window
 
 
 
+	protected void OnDegreebutActivated (object sender, EventArgs e)
+	{
+		throw new NotImplementedException ();
+	}
+
+	protected void OnRadianbutActivated (object sender, EventArgs e)
+	{
+		throw new NotImplementedException ();
+	}
+
+
+
+	// coding for sin
+	protected void OnBtnSinClicked (object sender, EventArgs e)
+	{
+		//if radian is selected
+
+		const bool b = true;
+		if (radianbut.Clicked += b) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if degree is selected
+		else {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+		}
+	}
+
 }
