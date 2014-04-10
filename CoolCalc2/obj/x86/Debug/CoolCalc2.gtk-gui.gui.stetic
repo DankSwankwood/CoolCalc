@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/CoolCalc2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="512 306">
+  <widget class="Gtk.Window" id="MainWindow" design-size="512 354">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -20,23 +20,46 @@
           <widget class="Gtk.EventBox" id="eventbox1">
             <property name="MemberName" />
             <child>
-              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+              <widget class="Gtk.VBox" id="vbox2">
                 <property name="MemberName" />
-                <property name="ShadowType">In</property>
+                <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.TextView" id="textview1">
+                  <widget class="Gtk.Label" id="label1">
                     <property name="MemberName" />
-                    <property name="CanDefault">True</property>
-                    <property name="HasDefault">True</property>
-                    <property name="CanFocus">True</property>
-                    <property name="ShowScrollbars">True</property>
-                    <property name="Editable">False</property>
-                    <property name="AcceptsTab">False</property>
-                    <property name="Text" translatable="yes" />
-                    <property name="Justification">Right</property>
-                    <property name="Indent">5</property>
-                    <signal name="InsertAtCursor" handler="OnTextview1InsertAtCursor" />
+                    <property name="Xalign">0.98</property>
+                    <property name="Justify">Right</property>
                   </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                    <property name="MemberName" />
+                    <property name="ShadowType">In</property>
+                    <child>
+                      <widget class="Gtk.TextView" id="textview1">
+                        <property name="MemberName" />
+                        <property name="CanDefault">True</property>
+                        <property name="HasDefault">True</property>
+                        <property name="CanFocus">True</property>
+                        <property name="ShowScrollbars">True</property>
+                        <property name="Editable">False</property>
+                        <property name="AcceptsTab">False</property>
+                        <property name="Text" translatable="yes" />
+                        <property name="Justification">Right</property>
+                        <property name="Indent">5</property>
+                        <signal name="InsertAtCursor" handler="OnTextview1InsertAtCursor" />
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
                 </child>
               </widget>
             </child>
@@ -55,6 +78,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Degree</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -784,7 +808,6 @@
                 <property name="Label" translatable="yes">sin</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnSinClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>

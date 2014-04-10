@@ -2,12 +2,12 @@
 using System.Linq;
 using Gtk;
 using Pango;
+using System.Collections.Generic;
 
 public partial class MainWindow: Gtk.Window
 {
-	string opr;
-	double result, operand1, operand2;
-
+	double operand1, operand2;
+	string textviewInput = ""; //this is used to store the textview input
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -17,23 +17,28 @@ public partial class MainWindow: Gtk.Window
 		btnOn2.Sensitive = false; //The on button is disable at program start
 
 		//////////////////////////////DESIGN
-		/// 
-		/// 
-		/// 
+
 		textview1.ModifyFont(FontDescription.FromString("Helvetica 48"));
+		label1.ModifyFont(FontDescription.FromString("Helvetica 20"));
+		label1.ModifyBg (Gtk.StateType.Normal, new Gdk.Color (255, 255, 255));
+		label1.ModifyFg (Gtk.StateType.Normal, new Gdk.Color (143, 143, 143));
+
 		//Color of buttons:
 		//Equals button to blue color (Inspiration from Googles Scientific Calculator)
 		Gdk.Color colEquals = new Gdk.Color(73,141,252);
 		Gdk.Color colFunctions = new Gdk.Color (212, 212, 212);
 		Gdk.Color colFont = new Gdk.Color(255,255,255);
+
 		//Equals button:
 		btnEquals.ModifyBg (Gtk.StateType.Normal, colEquals);
 		btnEquals.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(80, 150,255));
 		btnEquals.ModifyBg (Gtk.StateType.Active, colEquals);
-		//btnEquals.ModifyBase (Gtk.StateType.Normal, colFont);
-		btnEquals.ModifyText (Gtk.StateType.Prelight, colFont);
+		btnEquals.ModifyFg (Gtk.StateType.Normal, colFont);
+		btnEquals.ModifyFg (Gtk.StateType.Prelight, colFont);
+		btnEquals.ModifyFg (Gtk.StateType.Active, colFont);
 
 		//Function buttons:
+		//All number buttons are default color and all the function buttons are darker.
 		btnPlus.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnPlus.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnPlus.ModifyBg (Gtk.StateType.Active, colFunctions);
@@ -107,6 +112,12 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = "";
 		}
 	}
+
+	//      protected void CheckForCalculation(){
+	//              if(textview1.Buffer.Text.Contains("!"))
+	//      }
+
+
 	//Checks if thet ext buffer ends with a symbol and making it impossible to have multiples of the
 	//same symbol. It haves an input so we can define what input it should write depending on in which
 	//symbol code we add this function. - Niclas Bach Nielsen
@@ -201,6 +212,7 @@ public partial class MainWindow: Gtk.Window
 		IfZero ();
 		textview1.Buffer.Text += "9";
 	}
+		
 	//Coding for the plus button.
 	//Their can only be one "+" sign present at a time after each number, this does the if and else
 	//make sure of by checking if the text ends with a plus symbol (+), if it does it should remove it. 
@@ -221,7 +233,6 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnMinusClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith("-")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
 			//DO NOTHING
 		} else {
 			CheckSymbol ("-");
@@ -232,7 +243,6 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnDivClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith ("/")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
 			//DO NOTHING
 		} else {
 			CheckSymbol ("/");
@@ -243,7 +253,6 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnMulClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith ("*")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
 			//DO NOTHING
 		} else {
 			CheckSymbol ("*");
@@ -254,7 +263,6 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnPercClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith ("%")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("-"));
 			//DO NOTHING
 		} else {
 			CheckSymbol ("%");
@@ -264,7 +272,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		int testDot = 0;
 		if (textview1.Buffer.Text.EndsWith (".")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("."));
 			//DO NOTHING
 		} else {
 			testDot = textview1.Buffer.Text.LastIndexOf ("+");
@@ -280,83 +287,67 @@ public partial class MainWindow: Gtk.Window
 	}
 
 
-
-
-
-
-
-	//addition function - making sure that the operation is "+"
-	private void addition(object sender, EventArgs e){
-
-		operand1 = Convert.ToDouble (textview1.Buffer.Text);
-		opr = "+";
-		textview1.Buffer.Clear();
-	}
-	//minus function - making sure that the operation is "-"
-
-	private void minus(object sender, EventArgs e){
-
-		operand1 = Convert.ToDouble (textview1.Buffer.Text);
-		opr = "-";
-		textview1.Buffer.Clear();
-	}
-	//divide function - making sure that the operation is "/"
-
-	private void divide(object sender, EventArgs e){
-
-		operand1 = Convert.ToDouble (textview1.Buffer.Text);
-		opr = "/";
-		textview1.Buffer.Clear();
-	}
-
-	private void multiply(object sender, EventArgs e){
-
-		operand1 = Convert.ToDouble (textview1.Buffer.Text);
-		opr = "*";
-		textview1.Buffer.Clear();
-	}
-
-	private void modulus(object sender, EventArgs e){
-
-		operand1 = Convert.ToDouble (textview1.Buffer.Text);
-		opr = "%";
-		textview1.Buffer.Clear();
-	}
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
 	{
-		operand2 = Convert.ToDouble (textview1.Buffer.Text);
+		label1.Text = textview1.Buffer.Text + " ="; //Making the label above the textview equal to the text view - for an intuitive and sexy calculator
+		textviewInput = textview1.Buffer.Text;
 
-		switch (opr) {
-		case "+":
-			result = operand1 + operand2;
-			textview1.Buffer.Text = Convert.ToString (result);
-			break;
-		case "-":
-			result = operand1 - operand2;
-			textview1.Buffer.Text = Convert.ToString (result);
-			break;
-		case "/":
-			if (operand2 == 0) {
-				textview1.Buffer.Text = "0.0";
-				break;
-			} else {
-				result = operand1 / operand2;
-				textview1.Buffer.Text = Convert.ToString (result);
-				break;
+		//Regex is used to split the strings and store the numbers and symbols in rNumbers and rSymbols
+		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]");
+		System.Text.RegularExpressions.Regex rSymbols = new System.Text.RegularExpressions.Regex("[0-9]+[.]?[0-9]?");
+
+		//Giving the numbers and symbols their own list
+		List<string> numbersList = rNumbers.Split(textviewInput).ToList<string>();
+		List<string> symbolsList = rSymbols.Split(textviewInput).ToList<string>();
+		symbolsList.RemoveAll(item => item == ""); //Removing all the spaces in order to calculate
+
+		//Storing the first number in operand1
+		operand1 = System.Convert.ToDouble(numbersList[0]);
+
+
+		//For loop going through numbersList to get the numbers in order to do the calculations
+		for (int i = 1, j = 0; i < numbersList.Count; i++, j++) {
+			Console.Write ("\n{0} ", operand1); //show first part of equation in console
+
+			//Get the next number
+			operand2 = System.Convert.ToDouble (numbersList [i]);
+
+			//Checking the symbolsList for which operation to perform. The switch case is used to perform the different operations.
+			//If needed, other operations can be added.
+			switch (symbolsList [j]) {
+			case "+":
+				{
+					operand1 += operand2;
+					break;
+				}
+			case "-":
+				{
+					operand1 -= operand2;
+					break;
+				}
+			case "/":
+				{
+					operand1 /= operand2;
+					break;
+				}
+			case "*":
+				{
+					operand1 *= operand2;
+					break;
+				}
 			}
-		case "*":
-			result = operand1 * operand2;
-			textview1.Buffer.Text = Convert.ToString (result);
-			break;
-		case "%":
-			result = operand1 % operand2;
-			textview1.Buffer.Text = Convert.ToString (result);
-			break;
-		
 
+			//Show final part of equation in console
+			Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
+
+		}
+
+		//Show the answer in the console and the textview1
+		textview1.Buffer.Text = Convert.ToString(operand1);
+		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
 	}
-	}
+		
 
 
 	//DEL button is implemented here. When clicked it stores the display text in a string and assigns
@@ -391,6 +382,18 @@ public partial class MainWindow: Gtk.Window
 		//textview1.Buffer.Insert (leftIter, "");
 		//textview1.Buffer.Text.Select (0, -1);
 
+
+		//http://zetcode.com/tutorials/gtktutorial/gtktextview/
+		//              Gtk.TextIter start;
+		//https://mail.gnome.org/archives/gtk-app-devel-list/2003-March/msg00391.html
+		//textview1.Buffer.GetIterAtMark;
+		//textview1.Buffer.InsertAtCursor
+		//                      Get the cursor mark with gtk_text_buffer_get_insert() or whatever it's
+		//                      called, then get the mark's location with
+		//                      gtk_text_buffer_get_iter_at_mark(), then get the char offset of the
+		//                      iter with gtk_text_iter_get_offset().
+		//textview1.Buffer.
+
 	}
 		
 	//ON button implementation. Enables all buttons and the textview but disables the ON button
@@ -418,14 +421,11 @@ public partial class MainWindow: Gtk.Window
 	{
 		IfZero ();
 		if (textview1.Buffer.Text.EndsWith ("3.14159265359")) {
-			//do nothing
+			//DO NOTHING
 		} else {
 			textview1.Buffer.Text += "3.14159265359";
 		}
 	}
-
-
-
 
 
 	protected void OnDegreebutActivated (object sender, EventArgs e)
@@ -441,18 +441,18 @@ public partial class MainWindow: Gtk.Window
 
 
 	// coding for sin
-	protected void OnBtnSinClicked (object sender, EventArgs e)
-	{
-		//if radian is selected
-
-		const bool b = true;
-		if (radianbut.Clicked += b) {
-			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
-		}
-		//if degree is selected
-		else {
-			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
-		}
-	}
+//	protected void OnBtnSinClicked (object sender, EventArgs e)
+//	{
+//		//if radian is selected
+//
+//		const bool b = true;
+//		if (radianbut.Clicked += b) {
+//			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
+//		}
+//		//if degree is selected
+//		else {
+//			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+//		}
+//	}
 
 }
