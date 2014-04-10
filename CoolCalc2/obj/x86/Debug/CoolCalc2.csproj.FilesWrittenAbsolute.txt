@@ -4,3 +4,9 @@
 /Users/niclas/CoolCalc/CoolCalc2/bin/Debug/CoolCalc2.exe
 /Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe
 /Users/niclas/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe.mdb
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.gtk-gui.gui.stetic
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/bin/Debug/CoolCalc2.exe.mdb
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/bin/Debug/CoolCalc2.exe
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe
+/Users/MajaSofie/Desktop/CoolCalc/CoolCalc2/obj/x86/Debug/CoolCalc2.exe.mdb
