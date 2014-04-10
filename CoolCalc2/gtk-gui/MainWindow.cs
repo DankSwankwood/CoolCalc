@@ -678,5 +678,6 @@ public partial class MainWindow
 		this.btnEquals.Clicked += new global::System.EventHandler (this.OnBtnEqualsClicked);
 		this.btnDot.Clicked += new global::System.EventHandler (this.OnBtnDotClicked);
 		this.btnDiv.Clicked += new global::System.EventHandler (this.OnBtnDivClicked);
+		this.btnDel.Clicked += new global::System.EventHandler (this.OnBtnDelClicked);
 	}
 }

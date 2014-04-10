@@ -180,15 +180,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">cos</property>
                 <property name="UseUnderline">True</property>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <signal name="Clicked" handler="OnButton1Clicked" />
-=======
-                <signal name="Clicked" handler="OnBtnEqualsClicked" />
->>>>>>> Update
-=======
                 <property name="FocusOnClick">False</property>
->>>>>>> Update
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -213,6 +205,7 @@
                 <property name="Label" translatable="yes">DEL</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnDelClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">2</property>
