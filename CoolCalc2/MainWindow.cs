@@ -436,12 +436,10 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnDegreebutActivated (object sender, EventArgs e)
 	{
-		throw new NotImplementedException ();
 	}
 
 	protected void OnRadianbutActivated (object sender, EventArgs e)
 	{
-		throw new NotImplementedException ();
 	}
 
 
