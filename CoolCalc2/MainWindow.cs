@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public partial class MainWindow: Gtk.Window
 {
+	bool checkRadDeg;
 	double operand1, operand2;
 	string textviewInput = ""; //this is used to store the textview input
 
@@ -432,31 +433,29 @@ public partial class MainWindow: Gtk.Window
 		}
 >>>>>>> Update
 	}
+	
 
 
-	protected void OnDegreebutActivated (object sender, EventArgs e)
+//	coding for sin
+	protected void OnBtnSinClicked (object sender, EventArgs e)
 	{
+		//if radian is selected
+		if (checkRadDeg == true) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if degree is selected
+		else if(checkRadDeg == false) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+		}
 	}
 
-	protected void OnRadianbutActivated (object sender, EventArgs e)
+	protected void OnRadianbutToggled (object sender, EventArgs e)
 	{
+		checkRadDeg = true;
 	}
 
-
-
-	// coding for sin
-//	protected void OnBtnSinClicked (object sender, EventArgs e)
-//	{
-//		//if radian is selected
-//
-//		const bool b = true;
-//		if (radianbut.Clicked += b) {
-//			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
-//		}
-//		//if degree is selected
-//		else {
-//			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
-//		}
-//	}
-
+	protected void OnDegreebutToggled (object sender, EventArgs e)
+	{
+		checkRadDeg = false;
+	}
 }
