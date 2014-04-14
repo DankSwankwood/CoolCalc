@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolCalc", "CoolCalc\CoolCalc.csproj", "{EE070254-C19C-47C4-B740-8ABD7DBDA609}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolCalc2", "CoolCalc2\CoolCalc2.csproj", "{75F32ECB-9069-4272-B20A-F61A4E07B8B8}"
 EndProject
 Global
@@ -15,10 +13,6 @@ Global
 		{75F32ECB-9069-4272-B20A-F61A4E07B8B8}.Debug|x86.Build.0 = Debug|x86
 		{75F32ECB-9069-4272-B20A-F61A4E07B8B8}.Release|x86.ActiveCfg = Release|x86
 		{75F32ECB-9069-4272-B20A-F61A4E07B8B8}.Release|x86.Build.0 = Release|x86
-		{EE070254-C19C-47C4-B740-8ABD7DBDA609}.Debug|x86.ActiveCfg = Debug|x86
-		{EE070254-C19C-47C4-B740-8ABD7DBDA609}.Debug|x86.Build.0 = Debug|x86
-		{EE070254-C19C-47C4-B740-8ABD7DBDA609}.Release|x86.ActiveCfg = Release|x86
-		{EE070254-C19C-47C4-B740-8ABD7DBDA609}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = CoolCalc2\CoolCalc2.csproj
