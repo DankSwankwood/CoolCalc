@@ -19,7 +19,7 @@ public partial class MainWindow: Gtk.Window
 		//////////////////////////////DESIGN
 
 		textview1.ModifyFont(FontDescription.FromString("Helvetica 48"));
-		label1.ModifyFont(FontDescription.FromString("Helvetica 20"));
+		label1.ModifyFont(FontDescription.FromString("Helvetica 16"));
 		label1.ModifyBg (Gtk.StateType.Normal, new Gdk.Color (255, 255, 255));
 		label1.ModifyFg (Gtk.StateType.Normal, new Gdk.Color (143, 143, 143));
 
