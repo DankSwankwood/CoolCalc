@@ -657,9 +657,8 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.textview1.InsertAtCursor += new global::Gtk.InsertAtCursorHandler (this.OnTextview1InsertAtCursor);
-		this.degreebut.Toggled += new global::System.EventHandler (this.OnDegreebutToggled);
-		this.radianbut.Toggled += new global::System.EventHandler (this.OnRadianbutToggled);
 		this.clearBtn.Clicked += new global::System.EventHandler (this.OnClearBtnClicked);
+		this.btnTan.Clicked += new global::System.EventHandler (this.OnBtnTanClicked);
 		this.btnSin.Clicked += new global::System.EventHandler (this.OnBtnSinClicked);
 		this.btnPlus.Clicked += new global::System.EventHandler (this.OnBtnPlusClicked);
 		this.btnPerc.Clicked += new global::System.EventHandler (this.OnBtnPercClicked);
@@ -675,9 +674,8 @@ public partial class MainWindow
 		this.btnNum1.Clicked += new global::System.EventHandler (this.OnBtnNum1Clicked);
 		this.btnMul.Clicked += new global::System.EventHandler (this.OnBtnMulClicked);
 		this.btnMinus.Clicked += new global::System.EventHandler (this.OnBtnMinusClicked);
-		this.btnEquals.Clicked += new global::System.EventHandler (this.OnBtnEqualsClicked);
 		this.btnDot.Clicked += new global::System.EventHandler (this.OnBtnDotClicked);
 		this.btnDiv.Clicked += new global::System.EventHandler (this.OnBtnDivClicked);
-		this.btnDel.Clicked += new global::System.EventHandler (this.OnBtnDelClicked);
+		this.btnCos.Clicked += new global::System.EventHandler (this.OnBtnCosClicked);
 	}
 }

@@ -127,6 +127,7 @@ public partial class MainWindow: Gtk.Window
 		    textview1.Buffer.Text.EndsWith ("-") ||
 		    textview1.Buffer.Text.EndsWith ("/") ||
 		    textview1.Buffer.Text.EndsWith ("%") ||
+		    textview1.Buffer.Text.EndsWith ("sin") ||
 		    textview1.Buffer.Text.EndsWith (".")) {
 			//textview1.Buffer.Text = textview1.Buffer.Text + input;
 		} else {
@@ -284,8 +285,9 @@ public partial class MainWindow: Gtk.Window
 			//DO NOTHING
 			textview1.Buffer.Text += ".";
 		}*/
-
 	}
+
+		
 
 
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
@@ -337,6 +339,7 @@ public partial class MainWindow: Gtk.Window
 					operand1 *= operand2;
 					break;
 				}
+			
 			}
 
 			//Show final part of equation in console
@@ -428,11 +431,29 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 	
+	//Radian and degree is used when calculating cos, sin, tan, whether you want the result in radians or degrees.  
+	// the two radio buttons are booleans, theefore it will always be either radians or degrees. but is only taking into consideration
+	//when calculating cos, sin, tan. 
+	protected void OnRadianbutToggled (object sender, EventArgs e)
+	{
+		checkRadDeg = true;
+	}
+	protected void OnDegreebutToggled (object sender, EventArgs e)
+	{
+		checkRadDeg = false;
+	}
 
 
-//	coding for sin
+//	coding for Sin
 	protected void OnBtnSinClicked (object sender, EventArgs e)
 	{
+		IfZero ();
+		if (textview1.Buffer.Text.EndsWith ("sin")) {
+			//DO NOTHING
+		} else {
+			textview1.Buffer.Text += ("sin");
+		}	
+
 		//if radian is selected
 		if (checkRadDeg == true) {
 			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
@@ -443,13 +464,28 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-	protected void OnRadianbutToggled (object sender, EventArgs e)
+// 	coding for Cos
+	protected void OnBtnCosClicked (object sender, EventArgs e)
 	{
-		checkRadDeg = true;
+		//if radian is selected
+		if (checkRadDeg == true) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if degree is selected
+		else if(checkRadDeg == false) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+		}
 	}
 
-	protected void OnDegreebutToggled (object sender, EventArgs e)
+	protected void OnBtnTanClicked (object sender, EventArgs e)
 	{
-		checkRadDeg = false;
+		//if radian is selected
+		if (checkRadDeg == true) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Tan (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if degree is selected
+		else if(checkRadDeg == false) {
+			textview1.Buffer.Text = Convert.ToString (System.Math.Tan ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+		}
 	}
 }
