@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Gtk;
 using Pango;
@@ -251,9 +251,10 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-	//works the same, but with divide (*)
+	//works the same, but with multiply (*)
 	protected void OnBtnMulClicked (object sender, EventArgs e)
 	{
+
 		if (textview1.Buffer.Text.EndsWith ("*")) {
 			//DO NOTHING
 		} else {
@@ -268,7 +269,8 @@ public partial class MainWindow: Gtk.Window
 			//DO NOTHING
 		} else {
 			CheckSymbol ("%");
-		}	}
+		}	
+	}
 
 	protected void OnBtnDotClicked (object sender, EventArgs e)
 	{
@@ -339,9 +341,12 @@ public partial class MainWindow: Gtk.Window
 					operand1 *= operand2;
 					break;
 				}
-			
+			case "%":
+				{
+					operand1 %= operand2;
+					break;
+				}
 			}
-
 			//Show final part of equation in console
 			Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
@@ -351,6 +356,7 @@ public partial class MainWindow: Gtk.Window
 		textview1.Buffer.Text = Convert.ToString(operand1);
 		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
 	}
+	
 		
 
 
@@ -363,7 +369,7 @@ public partial class MainWindow: Gtk.Window
 		int stringLength = str.Length;
 
 		textview1.Buffer.Text = (str.Substring (0, stringLength - 1));
-
+	
 		//Prevents the program to crash and at the same time sets the display text to '0'
 		//when there is no more numbers to delete.
 		if (textview1.Buffer.Text == "") {
@@ -430,7 +436,20 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text += "3.14159265359";
 		}
 	}
-	
+
+
+	// the factorial function is the product of all positive numbers. the loop takes a number and 
+	//multiply with the number one less, until it hits 1.
+	protected void OnBtnFactClicked (object sender, EventArgs e)
+	{
+		int fac = 1;
+		for (int i = 1; i <= Convert.ToInt16(textview1.Buffer.Text); i++) 
+		{
+			fac = i * fac;
+		}
+		textview1.Buffer.Text = Convert.ToString (fac);
+	}
+
 	//Radian and degree is used when calculating cos, sin, tan, whether you want the result in radians or degrees.  
 	// the two radio buttons are booleans, theefore it will always be either radians or degrees. but is only taking into consideration
 	//when calculating cos, sin, tan. 
@@ -447,12 +466,7 @@ public partial class MainWindow: Gtk.Window
 //	coding for Sin
 	protected void OnBtnSinClicked (object sender, EventArgs e)
 	{
-		IfZero ();
-		if (textview1.Buffer.Text.EndsWith ("sin")) {
-			//DO NOTHING
-		} else {
-			textview1.Buffer.Text += ("sin");
-		}	
+
 
 		//if radian is selected
 		if (checkRadDeg == true) {
@@ -488,4 +502,6 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = Convert.ToString (System.Math.Tan ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
+
+
 }
