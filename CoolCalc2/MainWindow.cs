@@ -127,7 +127,7 @@ public partial class MainWindow: Gtk.Window
 		    textview1.Buffer.Text.EndsWith ("-") ||
 		    textview1.Buffer.Text.EndsWith ("/") ||
 		    textview1.Buffer.Text.EndsWith ("%") ||
-		    textview1.Buffer.Text.EndsWith ("sin") ||
+			textview1.Buffer.Text.EndsWith ("x^y") ||
 		    textview1.Buffer.Text.EndsWith (".")) {
 			//textview1.Buffer.Text = textview1.Buffer.Text + input;
 		} else {
@@ -272,6 +272,17 @@ public partial class MainWindow: Gtk.Window
 		}	
 	}
 
+	protected void OnBtnXYClicked (object sender, EventArgs e)
+	{
+		if (textview1.Buffer.Text.EndsWith ("x^y")) {
+			//DO NOTHING
+		} else {
+			CheckSymbol ("x^y");
+		}
+	}
+
+
+
 	protected void OnBtnDotClicked (object sender, EventArgs e)
 	{
 		int testDot = 0;
@@ -346,7 +357,11 @@ public partial class MainWindow: Gtk.Window
 					operand1 %= operand2;
 					break;
 				}
-			}
+			case "x^y":
+				{
+					System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
+					break;
+				}
 			//Show final part of equation in console
 			Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
@@ -357,7 +372,7 @@ public partial class MainWindow: Gtk.Window
 		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
 	}
 	
-		
+	}
 
 
 	//DEL button is implemented here. When clicked it stores the display text in a string and assigns
@@ -502,6 +517,9 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = Convert.ToString (System.Math.Tan ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
+
+
+
 
 
 }

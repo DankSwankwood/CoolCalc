@@ -303,7 +303,6 @@
                 <property name="Label" translatable="yes">x!</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnFactClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">4</property>
@@ -927,6 +926,7 @@
                 <property name="Label" translatable="yes">x^y</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnXYClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>

@@ -26,7 +26,6 @@
                 <child>
                   <widget class="Gtk.Label" id="label1">
                     <property name="MemberName" />
-                    <property name="Xalign">0.98</property>
                     <property name="Justify">Right</property>
                   </widget>
                   <packing>
@@ -83,7 +82,6 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
-                <signal name="Activated" handler="OnDegreebutActivated" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -205,7 +203,6 @@
                 <property name="Label" translatable="yes">DEL</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnDelClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">2</property>
@@ -929,6 +926,7 @@
                 <property name="Label" translatable="yes">x^y</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnXYClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -1006,6 +1004,22 @@
           </packing>
         </child>
       </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="CoolCalc2.blbla" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">blbla</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <placeholder />
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="CoolCalc2.blbla" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">blbla</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <placeholder />
     </child>
   </widget>
 </stetic-interface>
