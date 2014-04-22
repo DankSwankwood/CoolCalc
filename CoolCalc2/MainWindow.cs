@@ -100,6 +100,15 @@ public partial class MainWindow: Gtk.Window
 		btnLn.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnLn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnLn.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnSinInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnSinInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnSinInv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnCosInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnCosInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnCosInv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnTanInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnTanInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnTanInv.ModifyBg (Gtk.StateType.Active, colFunctions);
 		//BLABLA
 	}
 
