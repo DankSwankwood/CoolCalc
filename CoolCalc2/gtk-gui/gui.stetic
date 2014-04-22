@@ -77,7 +77,6 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Degree</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -116,6 +115,7 @@
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
                     <property name="BorderWidth">6</property>
+                    <signal name="Clicked" handler="OnBtnOff2Clicked" />
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
@@ -134,6 +134,7 @@
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
                     <property name="BorderWidth">6</property>
+                    <signal name="Clicked" handler="OnBtnOn2Clicked" />
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
@@ -203,6 +204,7 @@
                 <property name="Label" translatable="yes">DEL</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnDelClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">2</property>
@@ -335,6 +337,29 @@
                 <property name="AutoSize">False</property>
                 <property name="YOptions">Fill</property>
                 <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="btnLn">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">ln</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnBtnLnClicked" />
+              </widget>
+              <packing>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
@@ -714,8 +739,10 @@
                 <signal name="Clicked" handler="OnBtnPiClicked" />
               </widget>
               <packing>
-                <property name="TopAttach">2</property>
-                <property name="BottomAttach">3</property>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -742,31 +769,6 @@
                 <property name="BottomAttach">5</property>
                 <property name="LeftAttach">6</property>
                 <property name="RightAttach">7</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="btnRight">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">&gt;</property>
-                <property name="UseUnderline">True</property>
-                <property name="FocusOnClick">False</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
-                <property name="LeftAttach">1</property>
-                <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -976,14 +978,7 @@
               <widget class="Gtk.EventBox" id="eventbox2">
                 <property name="MemberName" />
                 <child>
-                  <widget class="Gtk.Button" id="btnLeft">
-                    <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">&lt;</property>
-                    <property name="UseUnderline">True</property>
-                    <property name="FocusOnClick">False</property>
-                  </widget>
+                  <placeholder />
                 </child>
               </widget>
               <packing>
