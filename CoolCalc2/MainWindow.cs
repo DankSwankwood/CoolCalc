@@ -544,4 +544,13 @@ public partial class MainWindow: Gtk.Window
 
 		}
 	}
+
+	protected void OnBtnSqrClicked (object sender, EventArgs e)
+	{
+		//if squareroot is selected
+		{
+			operand1 = (System.Math.Sqrt(Convert.ToDouble(textview1.Buffer.Text)));
+			textview1.Buffer.Text = Convert.ToString(operand1);
+		}
+	}
 }

@@ -828,6 +828,7 @@
                 <property name="Label" translatable="yes">√</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnSqrClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>

@@ -661,6 +661,7 @@ public partial class MainWindow
 		this.btnXY.Clicked += new global::System.EventHandler (this.OnBtnXYClicked);
 		this.btnX3.Clicked += new global::System.EventHandler (this.OnBtnX3Clicked);
 		this.btnX2.Clicked += new global::System.EventHandler (this.OnBtnX2Clicked);
+		this.btnSqr.Clicked += new global::System.EventHandler (this.OnBtnSqrClicked);
 		this.btnPlus.Clicked += new global::System.EventHandler (this.OnBtnPlusClicked);
 		this.btnPi.Clicked += new global::System.EventHandler (this.OnBtnPiClicked);
 		this.btnPerc.Clicked += new global::System.EventHandler (this.OnBtnPercClicked);
