@@ -878,6 +878,7 @@
                 <property name="Label" translatable="yes">x^2</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnX2Clicked" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
