@@ -557,6 +557,29 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = Convert.ToString(operand1);
 
 
+<<<<<<< HEAD
+=======
+	protected void OnBtnX3Clicked (object sender, EventArgs e)
+	{
+		//if x rise to power 3 is selected
+		{ 
+			operand1 = Convert.ToDouble(textview1.Buffer.Text) * Convert.ToDouble(textview1.Buffer.Text) *
+				Convert.ToDouble(textview1.Buffer.Text);
+			textview1.Buffer.Text = Convert.ToString(operand1);
+
+
+	}
+}
+
+	protected void OnBtnX2Clicked (object sender, EventArgs e)
+	{
+		//if x rise to power 2 is selected
+		{ 
+			operand1 = Convert.ToDouble (textview1.Buffer.Text) * Convert.ToDouble (textview1.Buffer.Text);
+			textview1.Buffer.Text = Convert.ToString(operand1);
+
+
+>>>>>>> FETCH_HEAD
 		}
 	}
 
@@ -585,6 +608,9 @@ public partial class MainWindow: Gtk.Window
 			operand1 = System.Math.Log (Convert.ToDouble (textview1.Buffer.Text));
 			textview1.Buffer.Text = Convert.ToString(operand1);
 		}
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 	}
 }
