@@ -97,9 +97,12 @@ public partial class MainWindow: Gtk.Window
 		btnFact.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnFact.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnFact.ModifyBg (Gtk.StateType.Active, colFunctions);
-		btnLn.ModifyBg (Gtk.StateType.Normal, colFunctions);
-		btnLn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
-		btnLn.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLeft.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
 		//BLABLA
 	}
 
@@ -519,6 +522,7 @@ public partial class MainWindow: Gtk.Window
 
 
 
+<<<<<<< HEAD
 	protected void OnBtnX3Clicked (object sender, EventArgs e)
 	{
 		//if x rise to power 3 is selected
@@ -591,4 +595,6 @@ public partial class MainWindow: Gtk.Window
 	{
 
 	}
+=======
+>>>>>>> FETCH_HEAD
 }
