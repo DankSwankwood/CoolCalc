@@ -671,6 +671,7 @@ public partial class MainWindow
 		this.btnMinus.Clicked += new global::System.EventHandler (this.OnBtnMinusClicked);
 		this.btnLog.Clicked += new global::System.EventHandler (this.OnBtnLogClicked);
 		this.btnLn.Clicked += new global::System.EventHandler (this.OnBtnLnClicked);
+		this.btnFact.Clicked += new global::System.EventHandler (this.OnBtnFactClicked);
 		this.btnEquals.Clicked += new global::System.EventHandler (this.OnBtnEqualsClicked);
 		this.btnDot.Clicked += new global::System.EventHandler (this.OnBtnDotClicked);
 		this.btnDiv.Clicked += new global::System.EventHandler (this.OnBtnDivClicked);

@@ -97,6 +97,9 @@ public partial class MainWindow: Gtk.Window
 		btnFact.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnFact.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnFact.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLn.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLn.ModifyBg (Gtk.StateType.Active, colFunctions);
 		//BLABLA
 	}
 
