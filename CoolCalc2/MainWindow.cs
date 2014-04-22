@@ -3,7 +3,7 @@ using System.Linq;
 using Gtk;
 using Pango;
 using System.Collections.Generic;
-
+// Calculator
 public partial class MainWindow: Gtk.Window
 {
 	bool checkRadDeg;
