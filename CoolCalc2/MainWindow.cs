@@ -522,4 +522,15 @@ public partial class MainWindow: Gtk.Window
 
 
 
+	protected void OnBtnX3Clicked (object sender, EventArgs e)
+	{
+		//if x rise to power 3 is selected
+		{ 
+			operand1 = Convert.ToDouble(textview1.Buffer.Text) * Convert.ToDouble(textview1.Buffer.Text) *
+				Convert.ToDouble(textview1.Buffer.Text);
+			textview1.Buffer.Text = Convert.ToString(operand1);
+
+
+	}
+}
 }

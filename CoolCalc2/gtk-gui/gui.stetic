@@ -77,7 +77,6 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Degree</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -710,6 +709,7 @@
                 <property name="Label" translatable="yes">π</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnPiClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -903,6 +903,7 @@
                 <property name="Label" translatable="yes">x^3</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnX3Clicked" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
