@@ -3,6 +3,7 @@ using System.Linq;
 using Gtk;
 using Pango;
 using System.Collections.Generic;
+
 public partial class MainWindow: Gtk.Window
 {
 	bool checkRadDeg;
@@ -96,9 +97,12 @@ public partial class MainWindow: Gtk.Window
 		btnFact.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnFact.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnFact.ModifyBg (Gtk.StateType.Active, colFunctions);
-		btnLn.ModifyBg (Gtk.StateType.Normal, colFunctions);
-		btnLn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
-		btnLn.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnLeft.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnLeft.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnRight.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnRight.ModifyBg (Gtk.StateType.Active, colFunctions);
 		//BLABLA
 	}
 
@@ -129,8 +133,7 @@ public partial class MainWindow: Gtk.Window
 		} else {
 			textview1.Buffer.Text = textview1.Buffer.Text + input;
 		}
-	}
-		
+	}	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
 		//Comment of Application.Quit() and a.RetVal = true (instead of false) 
@@ -307,7 +310,7 @@ public partial class MainWindow: Gtk.Window
 		textviewInput = textview1.Buffer.Text;
 
 		//Regex is used to split the strings and store the numbers and symbols in rNumbers and rSymbols
-		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]|[%]");
+		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]");
 		System.Text.RegularExpressions.Regex rSymbols = new System.Text.RegularExpressions.Regex("[0-9]+[.]?[0-9]?");
 
 		//Giving the numbers and symbols their own list
@@ -354,15 +357,11 @@ public partial class MainWindow: Gtk.Window
 					operand1 %= operand2;
 					break;
 				}
-//			case "^":
-//				{
-//					//double pow = operand2;
-//					for(double p = operand2; p < operand2; p++){
-//						operand1 *= operand2;
-//					}
-//					//operand1 = System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
-//					return;
-//				}
+			case "^":
+				{
+					System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
+					break;
+				}
 			//Show final part of equation in console
 				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
@@ -372,15 +371,7 @@ public partial class MainWindow: Gtk.Window
 		textview1.Buffer.Text = Convert.ToString(operand1);
 		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
 	}
-//		//X to the power of Y
-//		if (textview1.Buffer.Text.Contains ("^")) {
-//			System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
-//			textview1.Buffer.Text = Convert.ToString (operand1);
-//		}
 	
-		if (label1.Text.Contains ("%")) {
-			label1.Text = operand1 + " modulo " + operand2 + " =";
-		}
 	}
 
 
@@ -526,65 +517,9 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = Convert.ToString (System.Math.Tan ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
-		
-
-<<<<<<< HEAD
-	protected void OnBtnSqrClicked (object sender, EventArgs e)
-	{
-		throw new NotImplementedException ();
-=======
 
 
 
 
-	protected void OnBtnX3Clicked (object sender, EventArgs e)
-	{
-		//if x rise to power 3 is selected
-		{ 
-			operand1 = Convert.ToDouble(textview1.Buffer.Text) * Convert.ToDouble(textview1.Buffer.Text) *
-				Convert.ToDouble(textview1.Buffer.Text);
-			textview1.Buffer.Text = Convert.ToString(operand1);
 
-
-	}
-}
-
-	protected void OnBtnX2Clicked (object sender, EventArgs e)
-	{
-		//if x rise to power 2 is selected
-		{ 
-			operand1 = Convert.ToDouble (textview1.Buffer.Text) * Convert.ToDouble (textview1.Buffer.Text);
-			textview1.Buffer.Text = Convert.ToString(operand1);
-
-
-		}
-	}
-
-	protected void OnBtnSqrClicked (object sender, EventArgs e)
-	{
-		//if squareroot is selected
-		{
-			operand1 = (System.Math.Sqrt(Convert.ToDouble(textview1.Buffer.Text)));
-			textview1.Buffer.Text = Convert.ToString(operand1);
-		}
-	}
-
-	protected void OnBtnLogClicked (object sender, EventArgs e)
-	{
-		//if log is selected
-		{
-			operand1 = System.Math.Log10 (Convert.ToDouble (textview1.Buffer.Text));
-			textview1.Buffer.Text = Convert.ToString(operand1);
-		}
-	}
-
-	protected void OnBtnLnClicked (object sender, EventArgs e)
-	{
-		//if ln is selected
-		{
-			operand1 = System.Math.Log (Convert.ToDouble (textview1.Buffer.Text));
-			textview1.Buffer.Text = Convert.ToString(operand1);
-		}
->>>>>>> FETCH_HEAD
-	}
 }
