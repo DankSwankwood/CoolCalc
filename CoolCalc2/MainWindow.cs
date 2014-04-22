@@ -127,7 +127,7 @@ public partial class MainWindow: Gtk.Window
 		    textview1.Buffer.Text.EndsWith ("-") ||
 		    textview1.Buffer.Text.EndsWith ("/") ||
 		    textview1.Buffer.Text.EndsWith ("%") ||
-			textview1.Buffer.Text.EndsWith ("x^y") ||
+			textview1.Buffer.Text.EndsWith ("^") ||
 		    textview1.Buffer.Text.EndsWith (".")) {
 			//textview1.Buffer.Text = textview1.Buffer.Text + input;
 		} else {
@@ -274,10 +274,10 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnBtnXYClicked (object sender, EventArgs e)
 	{
-		if (textview1.Buffer.Text.EndsWith ("x^y")) {
+		if (textview1.Buffer.Text.EndsWith ("^")) {
 			//DO NOTHING
 		} else {
-			CheckSymbol ("x^y");
+			CheckSymbol ("^");
 		}
 	}
 
@@ -357,13 +357,13 @@ public partial class MainWindow: Gtk.Window
 					operand1 %= operand2;
 					break;
 				}
-			case "x^y":
+			case "^":
 				{
 					System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
 					break;
 				}
 			//Show final part of equation in console
-			Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
+				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
 		}
 
