@@ -82,6 +82,7 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
+                <signal name="Toggled" handler="OnDegreebutToggled" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -97,6 +98,7 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
+                <signal name="Toggled" handler="OnRadianbutToggled" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -175,6 +177,7 @@
                 <property name="Label" translatable="yes">cos</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnCosClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -827,6 +830,7 @@
                 <property name="Label" translatable="yes">sin</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnSinClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -872,6 +876,7 @@
                 <property name="Label" translatable="yes">tan</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
+                <signal name="Clicked" handler="OnBtnTanClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>

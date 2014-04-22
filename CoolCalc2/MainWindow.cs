@@ -100,6 +100,15 @@ public partial class MainWindow: Gtk.Window
 		btnLn.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnLn.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnLn.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnSinInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnSinInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnSinInv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnCosInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnCosInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnCosInv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		btnTanInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
+		btnTanInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
+		btnTanInv.ModifyBg (Gtk.StateType.Active, colFunctions);
 		//BLABLA
 	}
 
@@ -307,7 +316,7 @@ public partial class MainWindow: Gtk.Window
 		textviewInput = textview1.Buffer.Text;
 
 		//Regex is used to split the strings and store the numbers and symbols in rNumbers and rSymbols
-		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]");
+		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]|[%]");
 		System.Text.RegularExpressions.Regex rSymbols = new System.Text.RegularExpressions.Regex("[0-9]+[.]?[0-9]?");
 
 		//Giving the numbers and symbols their own list
@@ -354,11 +363,12 @@ public partial class MainWindow: Gtk.Window
 					operand1 %= operand2;
 					break;
 				}
-			case "^":
-				{
-					System.Math.Pow (Convert.ToDouble (operand1), Convert.ToDouble (operand2));
-					break;
-				}
+//			case "^":
+//				{
+//					//return Math.Pow (operand1, operand2);
+//
+//					//break;
+//				}
 			//Show final part of equation in console
 				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
@@ -482,10 +492,14 @@ public partial class MainWindow: Gtk.Window
 
 		//if radian is selected
 		if (checkRadDeg == true) {
+			//writes function in label1 
+			label1.Text = "sin(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Sin (Convert.ToDouble (textview1.Buffer.Text)));
 		}
 		//if degree is selected
 		else if(checkRadDeg == false) {
+			//writes function in label1 
+			label1.Text = "sin(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Sin ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
@@ -493,12 +507,17 @@ public partial class MainWindow: Gtk.Window
 // 	coding for Cos
 	protected void OnBtnCosClicked (object sender, EventArgs e)
 	{
+
 		//if radian is selected
 		if (checkRadDeg == true) {
+			//writes function in label1 
+			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
 		}
 		//if degree is selected
 		else if(checkRadDeg == false) {
+			//writes function in label1 
+			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
@@ -507,10 +526,12 @@ public partial class MainWindow: Gtk.Window
 	{
 		//if radian is selected
 		if (checkRadDeg == true) {
+			label1.Text = "tan(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Tan (Convert.ToDouble (textview1.Buffer.Text)));
 		}
 		//if degree is selected
 		else if(checkRadDeg == false) {
+			label1.Text = "tan(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text = Convert.ToString (System.Math.Tan ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
 		}
 	}
