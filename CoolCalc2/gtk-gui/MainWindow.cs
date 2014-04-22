@@ -660,9 +660,6 @@ public partial class MainWindow
 		this.btnX3.Clicked += new global::System.EventHandler (this.OnBtnX3Clicked);
 		this.btnX2.Clicked += new global::System.EventHandler (this.OnBtnX2Clicked);
 		this.btnSqr.Clicked += new global::System.EventHandler (this.OnBtnSqrClicked);
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
 >>>>>>> FETCH_HEAD
 		this.btnPlus.Clicked += new global::System.EventHandler (this.OnBtnPlusClicked);
 		this.btnPi.Clicked += new global::System.EventHandler (this.OnBtnPiClicked);
@@ -680,11 +677,6 @@ public partial class MainWindow
 		this.btnMul.Clicked += new global::System.EventHandler (this.OnBtnMulClicked);
 		this.btnMinus.Clicked += new global::System.EventHandler (this.OnBtnMinusClicked);
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-		this.btnLog.Clicked += new global::System.EventHandler (this.OnBtnLogClicked);
-		this.btnLn.Clicked += new global::System.EventHandler (this.OnBtnLnClicked);
->>>>>>> FETCH_HEAD
 =======
 		this.btnLog.Clicked += new global::System.EventHandler (this.OnBtnLogClicked);
 		this.btnLn.Clicked += new global::System.EventHandler (this.OnBtnLnClicked);
@@ -695,10 +687,7 @@ public partial class MainWindow
 		this.btnDiv.Clicked += new global::System.EventHandler (this.OnBtnDivClicked);
 		this.btnDel.Clicked += new global::System.EventHandler (this.OnBtnDelClicked);
 <<<<<<< HEAD
-<<<<<<< HEAD
 		this.btnCos.Clicked += new global::System.EventHandler (this.OnBtnCosClicked);
-=======
->>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 	}
