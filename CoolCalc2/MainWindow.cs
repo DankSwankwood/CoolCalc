@@ -596,12 +596,15 @@ public partial class MainWindow: Gtk.Window
 		//if Radian is selected
 		if (checkRadDeg == true)
 		{
+			label1.Text = "sin-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString(System.Math.Asin (Convert.ToDouble (textview1.Buffer.Text)));
+
 		}
 		//if Degree is selected
 		else
 		{
+			label1.Text = "sin-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString (System.Math.Asin (Convert.ToDouble (System.Math.PI) / 180) *
 				                  Convert.ToDouble (textview1.Buffer.Text));
@@ -614,12 +617,14 @@ public partial class MainWindow: Gtk.Window
 		//if Radian is selected
 		if (checkRadDeg == true)
 		{
+			label1.Text = "cos-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString(System.Math.Acos (Convert.ToDouble (textview1.Buffer.Text)));
 		}
 		//if Degree is selected
 		else
 		{
+			label1.Text = "cos-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString (System.Math.Acos (Convert.ToDouble (System.Math.PI) / 180) *
 				                  Convert.ToDouble (textview1.Buffer.Text));
@@ -633,12 +638,14 @@ public partial class MainWindow: Gtk.Window
 		//if Radian is selected
 		if (checkRadDeg == true)
 		{
+			label1.Text = "tan-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString(System.Math.Atan (Convert.ToDouble (textview1.Buffer.Text)));
 		}
 		//if Degree is selected
 		else
 		{
+			label1.Text = "tan-1(" + textview1.Buffer.Text + ")" + " =";
 			textview1.Buffer.Text =
 				Convert.ToString (System.Math.Atan (Convert.ToDouble (System.Math.PI) / 180) *
 				                  Convert.ToDouble (textview1.Buffer.Text));
