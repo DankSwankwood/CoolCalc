@@ -569,7 +569,7 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-	protected void OnBtnSinMinusClicked (object sender, EventArgs e)
+	protected void OnBtnSinInvClicked (object sender, EventArgs e)
 	{
 		//if sin inverse is selected
 		//if Radian is selected
@@ -587,8 +587,42 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-	protected void OnBtnCosMinusClicked (object sender, EventArgs e)
+	protected void OnBtnCosInvClicked (object sender, EventArgs e)
 	{
+		//if cos inverse is selected
+		//if Radian is selected
+		if (checkRadDeg == true)
+		{
+			textview1.Buffer.Text =
+				Convert.ToString(System.Math.Acos (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if Degree is selected
+		else
+		{
+			textview1.Buffer.Text =
+				Convert.ToString (System.Math.Acos (Convert.ToDouble (System.Math.PI) / 180) *
+				                  Convert.ToDouble (textview1.Buffer.Text));
+		}
 
+			}
+
+	protected void OnBtnTanInvClicked (object sender, EventArgs e)
+	{
+		//if tan inverse is selected
+		//if Radian is selected
+		if (checkRadDeg == true)
+		{
+			textview1.Buffer.Text =
+				Convert.ToString(System.Math.Atan (Convert.ToDouble (textview1.Buffer.Text)));
+		}
+		//if Degree is selected
+		else
+		{
+			textview1.Buffer.Text =
+				Convert.ToString (System.Math.Atan (Convert.ToDouble (System.Math.PI) / 180) *
+				                  Convert.ToDouble (textview1.Buffer.Text));
+
+}
 	}
+
 }
