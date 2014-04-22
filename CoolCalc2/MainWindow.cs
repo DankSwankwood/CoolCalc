@@ -553,4 +553,13 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text = Convert.ToString(operand1);
 		}
 	}
+
+	protected void OnBtnLogClicked (object sender, EventArgs e)
+	{
+		//if log is selected
+		{
+			operand1 = System.Math.Log10 (Convert.ToDouble (textview1.Buffer.Text));
+			textview1.Buffer.Text = Convert.ToString(operand1);
+		}
+	}
 }
