@@ -8,16 +8,15 @@ public partial class MainWindow: Gtk.Window
 {
 	bool checkRadDeg;
 	double operand1, operand2;
-	string textviewInput = ""; //this is used to store the textview input
+	string textviewInput = ""; //this is used to store the textview input for the calculations 
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		//Initializes the text view with a zero
-		textview1.Buffer.Text = "0";
+		textview1.Buffer.Text = "0"; //Initializes the text view with a zero
 		btnOn.Sensitive = false; //The on button is disabled at program start
 
-		//////////////////////////////DESIGN
+		////////////////////////////// DESIGN
 
 		textview1.ModifyFont(FontDescription.FromString("Helvetica 32"));
 		label1.ModifyFont(FontDescription.FromString("Helvetica 16"));
@@ -59,7 +58,6 @@ public partial class MainWindow: Gtk.Window
 		btnPerc.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnPerc.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnPerc.ModifyBg (Gtk.StateType.Active, colFunctions);
-
 		btnDel.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnDel.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnDel.ModifyBg (Gtk.StateType.Active, colFunctions);
@@ -105,14 +103,17 @@ public partial class MainWindow: Gtk.Window
 		btnTanInv.ModifyBg (Gtk.StateType.Normal, colFunctions);
 		btnTanInv.ModifyBg (Gtk.StateType.Prelight, new Gdk.Color(225,225,225));
 		btnTanInv.ModifyBg (Gtk.StateType.Active, colFunctions);
+		////////////////////////////// DESIGN - END
 	}
 
 	//IfZero prevents multiple zero in the text field to be present - IfZero(); needs to be called in 
 	//every button click.
+	//IfZero also contains the function to remove the result from the textview and put it in the label.
+	//This allows for new calculations after the equals sign have been pressed. But if a operation sign have been pressed it should ignore the new operation function.
 	protected void IfZero (){
 		if (textview1.Buffer.Text == "0") {
 			textview1.Buffer.Text = "";
-		} else if (label1.Text.Contains ("=")) {
+		} else if (label1.Text.Contains ("=") && !textview1.Buffer.Text.Contains("+") && !textview1.Buffer.Text.Contains("-") && !textview1.Buffer.Text.Contains("*") && !textview1.Buffer.Text.Contains("/") && !textview1.Buffer.Text.Contains("%") && !textview1.Buffer.Text.Contains("^")) {
 			label1.Text = "Ans " + textview1.Buffer.Text;
 			textview1.Buffer.Text = "";
 		}
@@ -128,7 +129,6 @@ public partial class MainWindow: Gtk.Window
 		    textview1.Buffer.Text.EndsWith ("%") ||
 			textview1.Buffer.Text.EndsWith ("^") ||
 		    textview1.Buffer.Text.EndsWith (".")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text + input;
 		} else {
 			textview1.Buffer.Text = textview1.Buffer.Text + input;
 		}
@@ -189,9 +189,7 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnNum6Clicked (object sender, EventArgs e)
 	{
 		IfZero ();
-		if (label1.Text.Contains ("=")) {
-			textview1.Buffer.Text += "6";
-		}
+		textview1.Buffer.Text += "6";
 	}
 
 	protected void OnBtnNum7Clicked (object sender, EventArgs e)
@@ -307,14 +305,20 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnDotClicked (object sender, EventArgs e)
 	{
 		int testDot = 0;
+		int dotPlus, dotMinus, dotMulti, dotDiv, dotPerc = 0;
 		if (textview1.Buffer.Text.EndsWith (".")) {
 			//DO NOTHING
 		} else {
-			testDot = textview1.Buffer.Text.LastIndexOf ("+");
+			testDot = textview1.Buffer.Text.LastIndexOf (".");
+			dotPlus = textview1.Buffer.Text.LastIndexOf ("+");
+			dotMinus = textview1.Buffer.Text.LastIndexOf ("-");
+			dotMulti = textview1.Buffer.Text.LastIndexOf ("*");
+			dotDiv = textview1.Buffer.Text.LastIndexOf ("/");
+			dotPerc = textview1.Buffer.Text.LastIndexOf ("%");
 			Console.WriteLine (testDot);
-			if (testDot == -1) {
+			if (testDot == -1 || dotPlus > testDot || dotMinus > testDot || dotMulti > testDot || dotDiv > testDot|| dotPerc > testDot) {
 				CheckSymbol (".");
-			}
+			} //else if (textview1.Buffer.Text.LastIndexOf ("+"))
 		}/*else if (textview1.Buffer.Text.Contains ("+") && textview1.Buffer.Text.Contains("")) {
 			//DO NOTHING
 			textview1.Buffer.Text += ".";
@@ -329,7 +333,7 @@ public partial class MainWindow: Gtk.Window
 		textviewInput = textview1.Buffer.Text;
 
 		//Regex is used to split the strings and store the numbers and symbols in rNumbers and rSymbols
-		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]|[%]");
+		System.Text.RegularExpressions.Regex rNumbers = new System.Text.RegularExpressions.Regex("[+]|[-]|[/]|[*]|[%]|[/^]");
 		System.Text.RegularExpressions.Regex rSymbols = new System.Text.RegularExpressions.Regex("[0-9]+[.]?[0-9]?");
 
 		//Giving the numbers and symbols their own list
@@ -376,12 +380,11 @@ public partial class MainWindow: Gtk.Window
 					operand1 %= operand2;
 					break;
 				}
-//			case "^":
-//				{
-//					operand1 = Math.Pow (operand1, operand2);
-//
-//					break;
-//				}
+			case "^":
+				{
+					operand1 = Math.Pow (operand1, operand2);
+					break;
+				}
 			//Show final part of equation in console
 				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
@@ -399,6 +402,7 @@ public partial class MainWindow: Gtk.Window
 	//string length than before.
 	protected void OnBtnDelClicked (object sender, EventArgs e)
 	{
+
 		string str = textview1.Buffer.Text;
 		int stringLength = str.Length;
 
@@ -494,19 +498,25 @@ public partial class MainWindow: Gtk.Window
 	// 	coding for Cos
 	protected void OnBtnCosClicked (object sender, EventArgs e)
 	{
-
-		//if radian is selected
-		if (checkRadDeg == true) {
-			//writes function in label1 
-			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
-			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
+		IfZero ();
+		if (textview1.Buffer.Text.EndsWith("cos(")) {
+			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("+"));
+			//DO NOTHING
+		} else {
+			CheckSymbol ("cos(");
 		}
-		//if degree is selected
-		else if(checkRadDeg == false) {
-			//writes function in label1 
-			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
-			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
-		}
+//		//if radian is selected
+//		if (checkRadDeg == true) {
+//			//writes function in label1 
+//			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
+//			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
+//		}
+//		//if degree is selected
+//		else if(checkRadDeg == false) {
+//			//writes function in label1 
+//			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
+//			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+//		}
 	}
 
 	protected void OnBtnTanClicked (object sender, EventArgs e)
@@ -592,7 +602,7 @@ public partial class MainWindow: Gtk.Window
 
 		//if squareroot is selected
 		{
-			operand1 = (System.Math.Sqrt(Convert.ToDouble(textview1.Buffer.Text)));
+			operand1 = System.Math.Sqrt(Convert.ToDouble(textview1.Buffer.Text));
 			textview1.Buffer.Text = Convert.ToString(operand1);
 		}
 	}

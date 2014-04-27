@@ -109,7 +109,6 @@
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
                     <property name="BorderWidth">6</property>
-                    <signal name="Clicked" handler="OnBtnOffClicked" />
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
@@ -128,7 +127,6 @@
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
                     <property name="BorderWidth">6</property>
-                    <signal name="Clicked" handler="OnBtnOnClicked" />
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
@@ -192,7 +190,6 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">cos⁻¹</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnBtnCosInvClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -218,7 +215,6 @@
                 <property name="Label" translatable="yes">DEL</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnDelClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">2</property>
@@ -319,7 +315,6 @@
                 <property name="Label" translatable="yes">x!</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnFactClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">4</property>
@@ -344,7 +339,6 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">ln</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnBtnLnClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
@@ -368,7 +362,6 @@
                 <property name="Label" translatable="yes">log</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnLogClicked" />
               </widget>
               <packing>
                 <property name="AutoSize">True</property>
@@ -725,7 +718,6 @@
                 <property name="Label" translatable="yes">π</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnPiClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">4</property>
@@ -777,7 +769,6 @@
                 <property name="Label" translatable="yes">sin</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnSinClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -799,7 +790,6 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">sin⁻¹</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnBtnSinInvClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -823,7 +813,6 @@
                 <property name="Label" translatable="yes">tan</property>
                 <property name="UseUnderline">True</property>
                 <property name="FocusOnClick">False</property>
-                <signal name="Clicked" handler="OnBtnTanClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -848,7 +837,6 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">tan⁻¹</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnBtnTanInvClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -975,7 +963,6 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
-                <signal name="Toggled" handler="OnDegreebutToggled" />
               </widget>
               <packing>
                 <property name="LeftAttach">3</property>
@@ -1002,7 +989,6 @@
                     <property name="Label" translatable="yes">√</property>
                     <property name="UseUnderline">True</property>
                     <property name="FocusOnClick">False</property>
-                    <signal name="Clicked" handler="OnBtnSqrClicked" />
                   </widget>
                 </child>
               </widget>
@@ -1029,7 +1015,6 @@
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
                 <property name="Group">group1</property>
-                <signal name="Toggled" handler="OnRadianbutToggled" />
               </widget>
               <packing>
                 <property name="LeftAttach">4</property>
