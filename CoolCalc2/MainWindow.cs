@@ -406,7 +406,7 @@ public partial class MainWindow: Gtk.Window
 
 		//Fixes the label text so it works with negative values and does not write zero as the first part of the string unless a different operator than "-" is present.
 		//It is directly related to the the if sentences at the start of the "OnBtnEqualsClicked" function.
-		if (label1.Text.StartsWith ("0") && !label1.Text.StartsWith("0*") && !label1.Text.StartsWith("0/") && !label1.Text.StartsWith("0%") && !label1.Text.StartsWith("0+")) {
+		if (label1.Text.StartsWith ("0") && !label1.Text.StartsWith("0*") && !label1.Text.StartsWith("0/") && !label1.Text.StartsWith("0%") && !label1.Text.StartsWith("0+") && !label1.Text.StartsWith("0^")) {
 			label1.Text = label1.Text.Remove(0,1).Insert(0, "");
 		}
 	}
