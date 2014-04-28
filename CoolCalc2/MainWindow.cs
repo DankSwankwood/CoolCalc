@@ -325,6 +325,13 @@ public partial class MainWindow: Gtk.Window
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
 	{
+		//Makes it possible to calculate with negative values.
+		//Checks for negative values in the textview
+		if (textview1.Buffer.Text.StartsWith ("-")) {
+			textview1.Buffer.Text =  textview1.Buffer.Text.Insert (0, "0");
+		}
+
+
 		label1.Text = textview1.Buffer.Text + " ="; //Making the label above the textview equal to the text view - for an intuitive and sexy calculator
 		textviewInput = textview1.Buffer.Text;
 
@@ -396,7 +403,12 @@ public partial class MainWindow: Gtk.Window
 		catch{
 			textview1.Buffer.Text = "Error";
 		}
-	
+
+		//Fixes the label text so it works with negative values and does not write zero as the first part of the string unless a different operator than "-" is present.
+		//It is directly related to the the if sentences at the start of the "OnBtnEqualsClicked" function.
+		if (label1.Text.StartsWith ("0") && !label1.Text.StartsWith("0*") && !label1.Text.StartsWith("0/") && !label1.Text.StartsWith("0%") && !label1.Text.StartsWith("0+")) {
+			label1.Text = label1.Text.Remove(0,1).Insert(0, "");
+		}
 	}
 		
 	//DEL button is implemented here. When clicked it stores the display text in a string and assigns
