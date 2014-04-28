@@ -131,6 +131,9 @@ public partial class MainWindow: Gtk.Window
 		} else {
 			textview1.Buffer.Text = textview1.Buffer.Text + input;
 		}
+		if (textview1.Buffer.Text.Contains ("Error")) {
+			textview1.Buffer.Text = "0" + input;
+		}
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -218,7 +221,6 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnPlusClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith("+")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("+"));
 			//DO NOTHING
 		} else {
 			CheckSymbol ("+");
@@ -338,56 +340,61 @@ public partial class MainWindow: Gtk.Window
 		//Storing the first number in operand1
 		operand1 = System.Convert.ToDouble(numbersList[0]);
 
+		try{
+			//For loop going through numbersList to get the numbers in order to do the calculations
+			for (int i = 1, j = 0; i < numbersList.Count; i++, j++) {
+				Console.Write ("\n{0} ", operand1); //show first part of equation in console
 
-		//For loop going through numbersList to get the numbers in order to do the calculations
-		for (int i = 1, j = 0; i < numbersList.Count; i++, j++) {
-			Console.Write ("\n{0} ", operand1); //show first part of equation in console
+				//Get the next number
+				operand2 = System.Convert.ToDouble (numbersList [i]);
 
-			//Get the next number
-			operand2 = System.Convert.ToDouble (numbersList [i]);
+				//Checking the symbolsList for which operation to perform. The switch case is used to perform the different operations.
+				//If needed, other operations can be added.
+				switch (symbolsList [j]) {
+				case "+":
+					{
+						operand1 += operand2;
+						break;
+					}
+				case "-":
+					{
+						operand1 -= operand2;
+						break;
+					}
+				case "/":
+					{
+						operand1 /= operand2;
+						break;
+					}
+				case "*":
+					{
+						operand1 *= operand2;
+						break;
+					}
+				case "%":
+					{
+						operand1 %= operand2;
+						break;
+					}
+				case "^":
+					{
+						operand1 = Math.Pow (operand1, operand2);
+						break;
+					}
+				//Show final part of equation in console
+				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
-			//Checking the symbolsList for which operation to perform. The switch case is used to perform the different operations.
-			//If needed, other operations can be added.
-			switch (symbolsList [j]) {
-			case "+":
-				{
-					operand1 += operand2;
-					break;
-				}
-			case "-":
-				{
-					operand1 -= operand2;
-					break;
-				}
-			case "/":
-				{
-					operand1 /= operand2;
-					break;
-				}
-			case "*":
-				{
-					operand1 *= operand2;
-					break;
-				}
-			case "%":
-				{
-					operand1 %= operand2;
-					break;
-				}
-			case "^":
-				{
-					operand1 = Math.Pow (operand1, operand2);
-					break;
-				}
-			//Show final part of equation in console
-			//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
+			}
 
+			//Show the answer in the console and the textview1
+			
+			textview1.Buffer.Text = Convert.ToString(operand1);
+			Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
+			}
 		}
 
-		//Show the answer in the console and the textview1
-		
-		textview1.Buffer.Text = Convert.ToString(operand1);
-		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
+		catch{
+			textview1.Buffer.Text = "Error";
 		}
 	
 	}
