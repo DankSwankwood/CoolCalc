@@ -23,7 +23,6 @@ public partial class MainWindow: Gtk.Window
 		label1.ModifyBg (Gtk.StateType.Normal, new Gdk.Color (255, 255, 255));
 		label1.ModifyFg (Gtk.StateType.Normal, new Gdk.Color (143, 143, 143));
 
-
 		//Color of buttons:
 		//Equals button to blue color (Inspiration from Googles Scientific Calculator)
 		Gdk.Color colEquals = new Gdk.Color(73,141,252);
@@ -113,7 +112,7 @@ public partial class MainWindow: Gtk.Window
 	protected void IfZero (){
 		if (textview1.Buffer.Text == "0") {
 			textview1.Buffer.Text = "";
-		} else if (label1.Text.Contains ("=") && !textview1.Buffer.Text.Contains("+") && !textview1.Buffer.Text.Contains("-") && !textview1.Buffer.Text.Contains("*") && !textview1.Buffer.Text.Contains("/") && !textview1.Buffer.Text.Contains("%") && !textview1.Buffer.Text.Contains("^")) {
+		} else if (label1.Text.Contains ("=") && !textview1.Buffer.Text.Contains("+") && !textview1.Buffer.Text.Contains("-") && !textview1.Buffer.Text.Contains("*") && !textview1.Buffer.Text.Contains("/") && !textview1.Buffer.Text.Contains("%") && !textview1.Buffer.Text.Contains("^") || textview1.Buffer.Text.Contains("E")) {
 			label1.Text = "Ans " + textview1.Buffer.Text;
 			textview1.Buffer.Text = "";
 		}
@@ -128,11 +127,12 @@ public partial class MainWindow: Gtk.Window
 		    textview1.Buffer.Text.EndsWith ("/") ||
 		    textview1.Buffer.Text.EndsWith ("%") ||
 			textview1.Buffer.Text.EndsWith ("^") ||
-		    textview1.Buffer.Text.EndsWith (".")) {
+			textview1.Buffer.Text.EndsWith (".")) {
 		} else {
 			textview1.Buffer.Text = textview1.Buffer.Text + input;
 		}
-	}	
+	}
+
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
 		//Comment of Application.Quit() and a.RetVal = true (instead of false) 
@@ -256,8 +256,7 @@ public partial class MainWindow: Gtk.Window
 			CheckSymbol ("*");
 		}
 	}
-
-
+		
 	protected void OnBtnPercClicked (object sender, EventArgs e)
 	{
 		if (textview1.Buffer.Text.EndsWith ("%")) {
@@ -301,7 +300,6 @@ public partial class MainWindow: Gtk.Window
 		}
 	}
 
-
 	protected void OnBtnDotClicked (object sender, EventArgs e)
 	{
 		int testDot = 0;
@@ -309,7 +307,7 @@ public partial class MainWindow: Gtk.Window
 		if (textview1.Buffer.Text.EndsWith (".")) {
 			//DO NOTHING
 		} else {
-			testDot = textview1.Buffer.Text.LastIndexOf (".");
+			testDot = textview1.Buffer.Text.LastIndexOf (",");
 			dotPlus = textview1.Buffer.Text.LastIndexOf ("+");
 			dotMinus = textview1.Buffer.Text.LastIndexOf ("-");
 			dotMulti = textview1.Buffer.Text.LastIndexOf ("*");
@@ -318,13 +316,9 @@ public partial class MainWindow: Gtk.Window
 			Console.WriteLine (testDot);
 			if (testDot == -1 || dotPlus > testDot || dotMinus > testDot || dotMulti > testDot || dotDiv > testDot|| dotPerc > testDot) {
 				CheckSymbol (".");
-			} //else if (textview1.Buffer.Text.LastIndexOf ("+"))
-		}/*else if (textview1.Buffer.Text.Contains ("+") && textview1.Buffer.Text.Contains("")) {
-			//DO NOTHING
-			textview1.Buffer.Text += ".";
-		}*/
+			}
+		}
 	}
-		
 
 	//Equals button - uses switch sentence to determine wether we have to add (+), divide (/) etc.
 	protected void OnBtnEqualsClicked (object sender, EventArgs e)
@@ -386,11 +380,12 @@ public partial class MainWindow: Gtk.Window
 					break;
 				}
 			//Show final part of equation in console
-				//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
+			//Console.Write ("{0} {1} = {2}", symbolsList [j], operand2, operand1);
 
 		}
 
 		//Show the answer in the console and the textview1
+		
 		textview1.Buffer.Text = Convert.ToString(operand1);
 		Console.WriteLine("\n\nYour final answer is: " + operand1 + "\n");
 		}
@@ -456,8 +451,8 @@ public partial class MainWindow: Gtk.Window
 	protected void OnBtnFactClicked (object sender, EventArgs e)
 	{
 		label1.Text = textview1.Buffer.Text + "!" + " =";
-		int fac = 1;
-		for (int i = 1; i <= Convert.ToInt16(textview1.Buffer.Text); i++) 
+		double fac = 1;
+		for (int i = 1; i <= Convert.ToDouble(textview1.Buffer.Text); i++) 
 		{
 			fac = i * fac;
 		}
@@ -475,7 +470,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		checkRadDeg = false;
 	}
-		
 		
 	//	coding for Sin
 	protected void OnBtnSinClicked (object sender, EventArgs e)
@@ -498,25 +492,18 @@ public partial class MainWindow: Gtk.Window
 	// 	coding for Cos
 	protected void OnBtnCosClicked (object sender, EventArgs e)
 	{
-		IfZero ();
-		if (textview1.Buffer.Text.EndsWith("cos(")) {
-			//textview1.Buffer.Text = textview1.Buffer.Text.Remove(textview1.Buffer.Text.LastIndexOf("+"));
-			//DO NOTHING
-		} else {
-			CheckSymbol ("cos(");
+		//if radian is selected
+		if (checkRadDeg == true) {
+			//writes function in label1 
+			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
+			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
 		}
-//		//if radian is selected
-//		if (checkRadDeg == true) {
-//			//writes function in label1 
-//			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
-//			textview1.Buffer.Text = Convert.ToString (System.Math.Cos (Convert.ToDouble (textview1.Buffer.Text)));
-//		}
-//		//if degree is selected
-//		else if(checkRadDeg == false) {
-//			//writes function in label1 
-//			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
-//			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
-//		}
+		//if degree is selected
+		else if(checkRadDeg == false) {
+			//writes function in label1 
+			label1.Text = "cos(" + textview1.Buffer.Text + ")" + " =";
+			textview1.Buffer.Text = Convert.ToString (System.Math.Cos ((Convert.ToDouble (System.Math.PI) / 180) * (Convert.ToDouble (textview1.Buffer.Text))));
+		}
 	}
 
 	protected void OnBtnTanClicked (object sender, EventArgs e)
@@ -592,7 +579,6 @@ public partial class MainWindow: Gtk.Window
 			textview1.Buffer.Text =
 				Convert.ToString (System.Math.Atan (Convert.ToDouble (System.Math.PI) / 180) *
 					Convert.ToDouble (textview1.Buffer.Text));
-
 		}
 	}
 		
